@@ -1,5 +1,40 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Welcome to my blog!!!</title><link>https://W2919.github.io</link><description>This is W2919's blog</description><copyright>Welcome to my blog!!!</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/146103133?v=4</url><title>avatar</title><link>https://W2919.github.io</link></image><lastBuildDate>Wed, 05 Nov 2025 17:01:02 +0000</lastBuildDate><managingEditor>Welcome to my blog!!!</managingEditor><ttl>60</ttl><webMaster>Welcome to my blog!!!</webMaster><item><title>Self-introduction</title><link>https://W2919.github.io/post/Self-introduction.html</link><description># 第一次博客作业
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Welcome to my blog!!!</title><link>https://W2919.github.io</link><description>This is W2919's blog</description><copyright>Welcome to my blog!!!</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/146103133?v=4</url><title>avatar</title><link>https://W2919.github.io</link></image><lastBuildDate>Thu, 20 Nov 2025 14:51:27 +0000</lastBuildDate><managingEditor>Welcome to my blog!!!</managingEditor><ttl>60</ttl><webMaster>Welcome to my blog!!!</webMaster><item><title>低调的黑客们</title><link>https://W2919.github.io/post/di-diao-de-hei-ke-men.html</link><description># 基于Yolo的智能驾驶舱系统 博客随笔
+https://github.com/W2919/W2919.github.io
+
+## 一、团队集结（8分）
+### 1.1 组员分工与技术擅长
+- 组长：吴昊（博文链接：https://github.com/W2919/W2919.github.io）
+  - 擅长技术：Python全栈开发、PyTorch深度学习、YOLO模型训练与优化、AI算法落地
+  - 拟担任角色：PM+AI核心开发+技术架构师
+  - 拟完成任务：项目统筹规划、YOLOv7模型训练（车辆识别/状态监测）、AI算法模块开发与集成、前后端技术架构设计
+- 组员1：王子健
+  - 擅长技术：OpenCV图像处理、级联分类器调优、Python脚本开发
+  - 拟担任角色：算法开发工程师
+  - 拟完成任务：驾驶人员状态监测算法实现（犯困/打哈气等状态识别）、图像预处理模块开发
+- 组员2：吴家宽
+  - 擅长技术：PyQt5界面开发、交互逻辑设计、多媒体功能集成
+  - 拟担任角色：前端开发工程师
+  - 拟完成任务：驾驶舱主界面搭建、音乐播放器/相册功能开发、UI交互优化
+- 组员3：王子豪
+  - 擅长技术：MySQL数据库设计、用户系统开发、数据存储优化
+  - 拟担任角色：后端开发工程师
+  - 拟完成任务：用户注册/登录/权限管理、系统数据存储与查询、数据库维护
+- 组员4：谭彦希
+  - 擅长技术：导航功能开发、第三方API对接、定位服务集成
+  - 拟担任角色：功能开发工程师
+  - 拟完成任务：导航模块开发、地图API对接、路径规划与实时提示
+- 组员5：张仁杰
+  - 擅长技术：后端接口开发、系统集成测试、性能优化
+  - 拟担任角色：后端开发+测试工程师
+  - 拟完成任务：前后端接口开发、模块间数据交互、系统功能测试与Bug修复
+- 组员6：曾煜林
+  - 擅长技术：语音提示功能开发、多模块协同调度、异常处理
+  - 拟担任角色：功能开发工程师
+  - 拟完成任务：驾驶状态异常语音提示、系统全局调度逻辑、异常场景处理机制
+
+### 1.2 团队特色描述
+作为“低调的黑客”，我们的核心竞争力在于**“技术深耕+场景落地”的低调务实**：不张扬噱头，专注于将深度学习算法与驾驶场景深度融合，实现从状态监测到多媒体服务的全流程闭环；7人团队分工明确，AI核心与前后端开发高效协同，能快速响应需求迭代，兼顾技术精度与用户体验。</description><guid isPermaLink="true">https://W2919.github.io/post/di-diao-de-hei-ke-men.html</guid><pubDate>Thu, 20 Nov 2025 14:49:57 +0000</pubDate></item><item><title>Self-introduction</title><link>https://W2919.github.io/post/Self-introduction.html</link><description># 第一次博客作业
 
 ## 一、自我介绍
 
