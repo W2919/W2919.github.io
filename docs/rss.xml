@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Welcome to my blog!!!</title><link>https://W2919.github.io</link><description>This is W2919's blog</description><copyright>Welcome to my blog!!!</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/146103133?v=4</url><title>avatar</title><link>https://W2919.github.io</link></image><lastBuildDate>Thu, 20 Nov 2025 14:51:27 +0000</lastBuildDate><managingEditor>Welcome to my blog!!!</managingEditor><ttl>60</ttl><webMaster>Welcome to my blog!!!</webMaster><item><title>低调的黑客们</title><link>https://W2919.github.io/post/di-diao-de-hei-ke-men.html</link><description># 基于Yolo的智能驾驶舱系统 博客随笔
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Welcome to my blog!!!</title><link>https://W2919.github.io</link><description>This is W2919's blog</description><copyright>Welcome to my blog!!!</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/146103133?v=4</url><title>avatar</title><link>https://W2919.github.io</link></image><lastBuildDate>Fri, 21 Nov 2025 12:44:02 +0000</lastBuildDate><managingEditor>Welcome to my blog!!!</managingEditor><ttl>60</ttl><webMaster>Welcome to my blog!!!</webMaster><item><title>ID组-选题与需求分析报告</title><link>https://W2919.github.io/post/ID-zu---xuan-ti-yu-xu-qiu-fen-xi-bao-gao.html</link><description># 12组-选题与需求分析报告
 https://github.com/W2919/W2919.github.io
 
 ## 一、团队集结（8分）
@@ -34,7 +34,7 @@ https://github.com/W2919/W2919.github.io
   - 拟完成任务：驾驶状态异常语音提示、系统全局调度逻辑、异常场景处理机制
 
 ### 1.2 团队特色描述
-作为“低调的黑客”，我们的核心竞争力在于**“技术深耕+场景落地”的低调务实**：不张扬噱头，专注于将深度学习算法与驾驶场景深度融合，实现从状态监测到多媒体服务的全流程闭环；7人团队分工明确，AI核心与前后端开发高效协同，能快速响应需求迭代，兼顾技术精度与用户体验。</description><guid isPermaLink="true">https://W2919.github.io/post/di-diao-de-hei-ke-men.html</guid><pubDate>Thu, 20 Nov 2025 14:49:57 +0000</pubDate></item><item><title>Self-introduction</title><link>https://W2919.github.io/post/Self-introduction.html</link><description># 第一次博客作业
+作为“低调的黑客”，我们的核心竞争力在于**“技术深耕+场景落地”的低调务实**：不张扬噱头，专注于将深度学习算法与驾驶场景深度融合，实现从状态监测到多媒体服务的全流程闭环；7人团队分工明确，AI核心与前后端开发高效协同，能快速响应需求迭代，兼顾技术精度与用户体验。</description><guid isPermaLink="true">https://W2919.github.io/post/ID-zu---xuan-ti-yu-xu-qiu-fen-xi-bao-gao.html</guid><pubDate>Thu, 20 Nov 2025 14:49:57 +0000</pubDate></item><item><title>Self-introduction</title><link>https://W2919.github.io/post/Self-introduction.html</link><description># 第一次博客作业
 
 ## 一、自我介绍
 
