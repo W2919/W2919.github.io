@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light" lang="zh-CN">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />
+    
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/146103133?v=4"><script>
+        let theme = localStorage.getItem("meek_theme") || "light";
+        document.documentElement.setAttribute("data-color-mode", theme);
+    </script>
+<meta name="description" content="**项目名称**：基于MySQL的“智学空间”学习应用数据库设计（创新型“学习强国”类应用）
+**开发者**：吴昊（个人开发）
+**学 号**：102301519
+**班 级**：计算机5班
+**课程名称**：数据库系统原理
+**提交日期**：2025年12月日
+
+
+## 第一章 引言
+### 1.1 项目背景与意义
+“学习强国”作为主流学习类应用，整合了海量优质学习资源，但在个性化推荐、社交互动等方面仍有拓展空间。">
+<meta property="og:title" content="《数据库系统原理》课程设计报告">
+<meta property="og:description" content="**项目名称**：基于MySQL的“智学空间”学习应用数据库设计（创新型“学习强国”类应用）
+**开发者**：吴昊（个人开发）
+**学 号**：102301519
+**班 级**：计算机5班
+**课程名称**：数据库系统原理
+**提交日期**：2025年12月日
+
+
+## 第一章 引言
+### 1.1 项目背景与意义
+“学习强国”作为主流学习类应用，整合了海量优质学习资源，但在个性化推荐、社交互动等方面仍有拓展空间。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://W2919.github.io/post/%E3%80%8A-shu-ju-ku-xi-tong-yuan-li-%E3%80%8B-ke-cheng-she-ji-bao-gao.html">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/146103133?v=4">
+<title>《数据库系统原理》课程设计报告</title>
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
+
+</head>
+<style>
+body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;padding: 45px;font-size: 16px;font-family: sans-serif;line-height: 1.25;}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+.postTitle{margin: auto 0;font-size:40px;font-weight:bold;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 600px) {
+    body {padding: 8px;}
+    .postTitle{font-size:24px;}
+}
+.copy-feedback {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    color: var(--color-fg-on-emphasis);
+    background-color: var(--color-fg-muted);
+    border-radius: 3px;
+    padding: 5px 8px;
+    font-size: 12px;
+}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1 class="postTitle">《数据库系统原理》课程设计报告</h1>
+<div class="title-right">
+    <a href="https://W2919.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+    <a href="https://github.com/W2919/W2919.github.io/issues/5" target="_blank" class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+    
+
+    <a class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </a>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody"><p><strong>项目名称</strong>：基于MySQL的“智学空间”学习应用数据库设计（创新型“学习强国”类应用）<br>
+<strong>开发者</strong>：吴昊（个人开发）<br>
+<strong>学 号</strong>：102301519<br>
+<strong>班 级</strong>：计算机5班<br>
+<strong>课程名称</strong>：数据库系统原理<br>
+<strong>提交日期</strong>：2025年12月日</p>
+<h2>第一章 引言</h2>
+<h3>1.1 项目背景与意义</h3>
+<p>“学习强国”作为主流学习类应用，整合了海量优质学习资源，但在个性化推荐、社交互动等方面仍有拓展空间。本项目设计“智学空间”应用，在保留“学习强国”核心学习功能（如时政资讯、课程学习、积分体系）的基础上，新增个性化内容推荐、学习小组协作、积分实物兑换等创新功能，满足用户多元化学习需求。</p>
+<p>数据库作为应用的核心支撑，需实现用户、内容、互动、积分等数据的高效存储、管理与查询。本次课程设计通过调研国内外数据库技术现状，结合项目需求选型MySQL，完成从需求分析到SQL实现的全流程数据库设计，巩固数据库系统原理知识，提升工程实践能力。</p>
+<h3>1.2 报告结构</h3>
+<p>本报告共分为八章：第一章为引言；第二章综述国内外数据库现状及MySQL选型理由；第三章完成系统需求分析与概念数据模型设计；第四章给出数据库SQL实现语句；第五章阐述系统安全性、完整性及性能优化措施；第六章说明项目组织与任务分配；第七章为个人工作汇报表；第八章为总结与展望。</p>
+<h2>第二章 国内外数据库管理系统现况与进展综述</h2>
+<h3>2.1 国外数据库管理系统现况与进展</h3>
+<h4>2.1.1 传统关系型数据库（RDBMS）</h4>
+<p>国外传统关系型数据库技术成熟，生态完善：</p>
+<ul>
+<li><strong>Oracle</strong>：行业标杆，支持高并发、高可用，提供完整的事务管理、数据备份与恢复功能，广泛应用于金融、政府等核心业务系统，但商业授权费用高昂，部署维护复杂。</li>
+<li><strong>SQL Server</strong>：微软推出的RDBMS，与Windows生态兼容性极佳，支持混合云部署，提供可视化管理工具，适合中小型企业及Windows环境下的应用开发，但跨平台能力较弱。</li>
+<li><strong>PostgreSQL</strong>：开源免费的高端RDBMS，支持复杂数据类型（如JSON、地理信息）、自定义函数与存储过程，扩展性强，近年在云原生场景下发展迅速，但在高并发读写场景下的优化需专业配置。</li>
+</ul>
+<h4>2.1.2 NoSQL数据库</h4>
+<p>针对海量非结构化/半结构化数据存储需求，NoSQL数据库快速崛起：</p>
+<ul>
+<li><strong>MongoDB</strong>：文档型数据库，以JSON格式存储数据，适合内容管理、日志存储等场景，支持水平扩展，但事务支持较弱（3.0+版本逐步完善）。</li>
+<li><strong>Redis</strong>：内存型键值数据库，读写速度极快，常用于缓存、会话存储、实时计数器，支持多种数据结构（字符串、哈希、列表等），但数据持久化需平衡性能与可靠性。</li>
+<li><strong>Cassandra</strong>：分布式列存储数据库，适合海量数据高并发写入，支持跨区域部署，容错性强，但查询语法复杂，不适合复杂关联查询。</li>
+</ul>
+<h4>2.1.3 NewSQL数据库</h4>
+<p>融合RDBMS的事务特性与NoSQL的扩展性，解决“海量数据+复杂查询”需求：</p>
+<ul>
+<li><strong>CockroachDB</strong>：兼容PostgreSQL语法，支持分布式事务、自动分片与故障转移，适合全球部署的应用，但部署维护成本较高。</li>
+<li><strong>TiDB</strong>：国内团队主导开发的NewSQL数据库（国外广泛应用），支持HTAP（混合事务/分析处理），兼容MySQL协议，但其核心技术源于国外开源生态。</li>
+</ul>
+<h4>2.1.4 国外数据库技术进展</h4>
+<ul>
+<li>云原生成为主流：Oracle Cloud、AWS RDS等云数据库服务快速普及，支持弹性伸缩、按需付费，降低部署成本。</li>
+<li>多模数据支持：单一数据库支持关系型、文档型、时序型等多种数据模型，满足复杂应用需求。</li>
+<li>智能化优化：集成AI技术实现自动索引推荐、查询优化、故障预测，提升数据库运维效率。</li>
+</ul>
+<h3>2.2 国内数据库管理系统现况与进展</h3>
+<h4>2.2.1 自主可控数据库（政策驱动）</h4>
+<p>受信创政策推动，国内数据库厂商快速崛起，聚焦自主可控与国产化替代：</p>
+<ul>
+<li><strong>阿里云PolarDB</strong>：兼容MySQL/PostgreSQL/Oracle，基于云原生架构，支持读写分离、自动扩容，性能是传统MySQL的6倍以上，广泛应用于电商、政务场景。</li>
+<li><strong>腾讯TDSQL</strong>：分布式关系型数据库，支持金融级高可用（RTO&lt;10s），兼容MySQL/PostgreSQL，已应用于微信支付、腾讯云等核心业务。</li>
+<li><strong>华为GaussDB</strong>：支持集中式与分布式部署，兼容Oracle语法，提供全栈国产化解决方案（搭配华为服务器、操作系统），主打政务、金融领域。</li>
+<li><strong>人大金仓KingbaseES</strong>：基于PostgreSQL研发，支持事务ACID特性，兼容Oracle存储过程与函数，是政务系统国产化替代的核心选择。</li>
+</ul>
+<h4>2.2.2 特色数据库</h4>
+<ul>
+<li><strong>巨杉SequoiaDB</strong>：分布式文档型数据库，兼容MongoDB协议，支持PB级数据存储，适合互联网、物联网场景。</li>
+<li><strong>星环Transwarp KunDB</strong>：HTAP架构数据库，支持实时事务处理与离线分析，适合企业级数据中台建设。</li>
+</ul>
+<h4>2.2.3 国内数据库技术进展</h4>
+<ul>
+<li>国产化替代加速：从“可用”向“好用”转变，兼容性、性能逐步追平国外产品。</li>
+<li>分布式架构普及：解决传统单体数据库的性能瓶颈，满足海量数据存储需求。</li>
+<li>产学研协同：高校与企业合作研发核心技术，提升数据库自主创新能力。</li>
+</ul>
+<h3>2.3 本项目数据库选型（MySQL）及理由</h3>
+<h4>2.3.1 选型结果</h4>
+<p>本项目选择<strong>MySQL 8.0</strong>作为数据库管理系统，搭配Redis作为缓存辅助提升性能。</p>
+<h4>2.3.2 选型理由</h4>
+<ol>
+<li><strong>适配项目规模与需求</strong>：本项目为个人开发的学习类应用，用户量、数据量适中，核心数据（用户、内容、积分）均为结构化数据，MySQL的关系型存储模型能完美支撑实体间的关联查询（如用户-学习记录-内容、用户-积分记录-任务）。</li>
+<li><strong>开源免费与低成本</strong>：MySQL开源免费，无需商业授权费用，适合个人开发场景，且安装部署简单，支持Windows、Linux等多平台，降低开发与运维成本。</li>
+<li><strong>生态成熟与易用性</strong>：MySQL语法简洁，与主流开发语言（Java、Python）兼容性极佳，拥有丰富的文档与社区资源，遇到问题可快速获取解决方案；其可视化工具（Navicat、MySQL Workbench）降低了数据库管理难度。</li>
+<li><strong>核心特性满足需求</strong>：
+<ul>
+<li>事务支持：确保积分兑换、任务完成等操作的原子性（如积分扣除与商品兑换需同时成功或失败）。</li>
+<li>索引优化：支持B+树索引、联合索引，可提升内容查询、用户检索等场景的效率。</li>
+<li>触发器与存储过程：支持自定义业务逻辑（如完成任务自动加积分、学习时长统计）。</li>
+<li>安全性：支持密码加密、权限控制，可满足应用的安全需求。</li>
+</ul>
+</li>
+<li><strong>扩展性强</strong>：未来若应用用户量增长，可通过读写分离、分表分库（如按内容类型分表）扩展性能，MySQL生态提供成熟的分库分表中间件（如Sharding-JDBC）。</li>
+</ol>
+<h4>2.3.3 与其他数据库的对比</h4>
+<ul>
+<li>与Oracle对比：Oracle功能更强大，但商业授权费用高、资源占用大，个人开发难以承受，且本项目无需其复杂的企业级特性。</li>
+<li>与MongoDB对比：MongoDB适合非结构化数据，但本项目核心数据为结构化，且需要强事务支持，MongoDB的事务能力弱于MySQL。</li>
+<li>与国产数据库（如PolarDB）对比：国产数据库适配国产化环境，但部署依赖云平台或特定硬件，个人开发的灵活性不足，且学习成本较高。</li>
+</ul>
+<h2>第三章 系统设计</h2>
+<h3>3.1 需求分析</h3>
+<h4>3.1.1 功能需求</h4>
+<p>基于“学习强国”核心功能，新增创新模块，功能需求分为以下6类：</p>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>功能模块</th>
+<th>核心需求</th>
+<th>创新点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户管理模块</td>
+<td>注册、登录、个人信息修改、权限区分（普通用户/管理员）</td>
+<td>支持第三方登录（微信、QQ），个人学习标签设置（用于个性化推荐）</td>
+</tr>
+<tr>
+<td>内容学习模块</td>
+<td>文章/视频/直播学习、内容分类（时政、教育、技能、娱乐）、内容搜索</td>
+<td>个性化推荐（基于学习历史与标签匹配）、学习进度保存（视频断点续播）</td>
+</tr>
+<tr>
+<td>互动交流模块</td>
+<td>内容评论、收藏、分享</td>
+<td>学习小组（创建/加入小组、共享学习资源、小组讨论）</td>
+</tr>
+<tr>
+<td>积分体系模块</td>
+<td>每日任务（登录、学习、评论、分享）、积分获取、积分查询</td>
+<td>积分兑换（实物礼品、课程优惠券、小组特权）、积分排行榜（日/周/月）</td>
+</tr>
+<tr>
+<td>任务管理模块</td>
+<td>任务发布（管理员）、任务领取、任务完成验证</td>
+<td>自定义任务（用户可发布个人挑战任务，邀请好友参与）</td>
+</tr>
+<tr>
+<td>管理员模块</td>
+<td>内容审核、用户管理、任务配置、积分规则调整</td>
+<td>数据统计报表（学习活跃度、内容热度、积分兑换情况）</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h4>3.1.2 非功能需求</h4>
+<ol>
+<li><strong>性能需求</strong>：单表数据量达10万条时，查询响应时间≤1秒；支持并发用户数≥100人。</li>
+<li><strong>安全性需求</strong>：用户密码加密存储，防止SQL注入、数据泄露；不同角色权限隔离，普通用户无法修改他人数据。</li>
+<li><strong>完整性需求</strong>：数据不可重复（如同一用户同一任务不可重复完成）、数据关联合法（外键引用有效）、业务逻辑合法（积分不可为负）。</li>
+<li><strong>易用性需求</strong>：数据库设计支持应用快速迭代，新增功能时无需大规模修改表结构。</li>
+<li><strong>可扩展性需求</strong>：支持后续用户量增长，可通过分表分库、缓存等方式扩展性能。</li>
+</ol>
+<h3>3.2 概念数据模型设计（E-R图）</h3>
+<h4>3.2.1 核心实体定义及属性</h4>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>实体名称</th>
+<th>属性列表</th>
+<th>主键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户（User）</td>
+<td>用户ID（user_id）、用户名（username）、密码（password）、手机号（phone）、邮箱（email）、角色（role）、注册时间（register_time）、学习标签（tags）、头像（avatar）</td>
+<td>user_id</td>
+</tr>
+<tr>
+<td>学习内容（Content）</td>
+<td>内容ID（content_id）、标题（title）、类型（type）、分类（category）、内容链接（url）、发布时间（publish_time）、作者（author）、简介（intro）、时长（duration）、热度（hot）</td>
+<td>content_id</td>
+</tr>
+<tr>
+<td>学习记录（LearningRecord）</td>
+<td>记录ID（record_id）、用户ID（user_id）、内容ID（content_id）、学习开始时间（start_time）、学习结束时间（end_time）、学习进度（progress）、是否完成（is_finish）</td>
+<td>record_id</td>
+</tr>
+<tr>
+<td>任务（Task）</td>
+<td>任务ID（task_id）、任务名称（task_name）、任务描述（description）、积分奖励（point）、任务类型（task_type）、开始时间（start_time）、结束时间（end_time）、状态（status）</td>
+<td>task_id</td>
+</tr>
+<tr>
+<td>任务完成记录（TaskRecord）</td>
+<td>记录ID（task_record_id）、用户ID（user_id）、任务ID（task_id）、完成时间（finish_time）、验证状态（verify_status）</td>
+<td>task_record_id</td>
+</tr>
+<tr>
+<td>积分记录（PointRecord）</td>
+<td>记录ID（point_record_id）、用户ID（user_id）、积分值（point_value）、变动类型（type）、关联ID（related_id）、变动时间（create_time）</td>
+<td>point_record_id</td>
+</tr>
+<tr>
+<td>评论（Comment）</td>
+<td>评论ID（comment_id）、用户ID（user_id）、内容ID（content_id）、评论内容（content）、评论时间（create_time）、点赞数（like_count）</td>
+<td>comment_id</td>
+</tr>
+<tr>
+<td>收藏（Collection）</td>
+<td>收藏ID（collect_id）、用户ID（user_id）、内容ID（content_id）、收藏时间（collect_time）</td>
+<td>collect_id</td>
+</tr>
+<tr>
+<td>学习小组（Group）</td>
+<td>小组ID（group_id）、小组名称（group_name）、创建者ID（creator_id）、创建时间（create_time）、简介（intro）、成员数量（member_count）</td>
+<td>group_id</td>
+</tr>
+<tr>
+<td>小组成员（GroupMember）</td>
+<td>关联ID（gm_id）、小组ID（group_id）、用户ID（user_id）、加入时间（join_time）、角色（role）</td>
+<td>gm_id</td>
+</tr>
+<tr>
+<td>积分兑换商品（ExchangeGoods）</td>
+<td>商品ID（goods_id）、商品名称（goods_name）、商品类型（goods_type）、所需积分（need_point）、库存（stock）、上架时间（shelf_time）、下架时间（off_shelf_time）</td>
+<td>goods_id</td>
+</tr>
+<tr>
+<td>兑换记录（ExchangeRecord）</td>
+<td>记录ID（exchange_id）、用户ID（user_id）、商品ID（goods_id）、兑换时间（exchange_time）、物流信息（logistics）、兑换状态（status）</td>
+<td>exchange_id</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h4>3.2.2 实体间关系</h4>
+<ol>
+<li><strong>用户与学习内容</strong>：多对多关系，通过“学习记录”表关联（1个用户可学习多个内容，1个内容可被多个用户学习）。</li>
+<li><strong>用户与任务</strong>：多对多关系，通过“任务完成记录”表关联（1个用户可完成多个任务，1个任务可被多个用户完成）。</li>
+<li><strong>用户与积分记录</strong>：一对多关系（1个用户可产生多条积分变动记录）。</li>
+<li><strong>用户与评论</strong>：一对多关系（1个用户可发布多条评论）。</li>
+<li><strong>用户与收藏</strong>：一对多关系（1个用户可收藏多个内容）。</li>
+<li><strong>用户与学习小组</strong>：多对多关系，通过“小组成员”表关联（1个用户可加入多个小组，1个小组可包含多个用户）。</li>
+<li><strong>用户与积分兑换商品</strong>：多对多关系，通过“兑换记录”表关联（1个用户可兑换多个商品，1个商品可被多个用户兑换）。</li>
+<li><strong>学习内容与评论</strong>：一对多关系（1个内容可被多条评论）。</li>
+<li><strong>学习内容与收藏</strong>：一对多关系（1个内容可被多个用户收藏）。</li>
+<li><strong>任务与积分记录</strong>：一对多关系（1个任务完成可产生1条积分记录）。</li>
+<li><strong>积分兑换商品与兑换记录</strong>：一对多关系（1个商品可对应多条兑换记录）。</li>
+<li><strong>用户与学习小组（创建者）</strong>：一对多关系（1个用户可创建多个小组）。</li>
+</ol>
+<h4>3.2.3 E-R图</h4>
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/4e446c3b-281d-4d72-8954-7f7396335499"><img width="2000" height="2000" alt="Image" src="https://github.com/user-attachments/assets/4e446c3b-281d-4d72-8954-7f7396335499" style="max-width: 100%; height: auto; max-height: 2000px;"></a></p>
+<h2>第四章 系统SQL实现</h2>
+<h3>4.1 数据库创建</h3>
+<div class="highlight highlight-source-sql"><pre class="notranslate"><span class="pl-c"><span class="pl-c">--</span> 创建数据库，设置字符集为UTF-8</span>
+<span class="pl-k">CREATE</span> <span class="pl-k">DATABASE</span> <span class="pl-en">IF</span> NOT EXISTS smart_learning_space CHARACTER <span class="pl-k">SET</span> utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+<span class="pl-c"><span class="pl-c">--</span> 使用数据库</span>
+USE smart_learning_space;</pre></div>
+<h3>4.2 表创建语句</h3>
+<h4>4.2.1 用户表（User）</h4>
+<div class="highlight highlight-source-sql"><pre class="notranslate"><span class="pl-k">CREATE</span> <span class="pl-k">TABLE</span> <span class="pl-en">IF</span> NOT EXISTS <span class="pl-s"><span class="pl-pds">`</span>User<span class="pl-pds">`</span></span> (
+  <span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">PRIMARY KEY</span> AUTO_INCREMENT COMMENT <span class="pl-s"><span class="pl-pds">'</span>用户ID（主键）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>username<span class="pl-pds">`</span></span> <span class="pl-k">VARCHAR</span>(<span class="pl-c1">50</span>) <span class="pl-k">NOT NULL</span> UNIQUE COMMENT <span class="pl-s"><span class="pl-pds">'</span>用户名（唯一）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>password<span class="pl-pds">`</span></span> <span class="pl-k">VARCHAR</span>(<span class="pl-c1">100</span>) <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>加密后的密码<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>phone<span class="pl-pds">`</span></span> <span class="pl-k">VARCHAR</span>(<span class="pl-c1">20</span>) UNIQUE COMMENT <span class="pl-s"><span class="pl-pds">'</span>手机号（唯一）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>email<span class="pl-pds">`</span></span> <span class="pl-k">VARCHAR</span>(<span class="pl-c1">100</span>) UNIQUE COMMENT <span class="pl-s"><span class="pl-pds">'</span>邮箱（唯一）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>role<span class="pl-pds">`</span></span> ENUM(<span class="pl-s"><span class="pl-pds">'</span>common<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>admin<span class="pl-pds">'</span></span>) <span class="pl-k">NOT NULL</span> DEFAULT <span class="pl-s"><span class="pl-pds">'</span>common<span class="pl-pds">'</span></span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>角色（普通用户/管理员）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>register_time<span class="pl-pds">`</span></span> DATETIME <span class="pl-k">NOT NULL</span> DEFAULT <span class="pl-c1">CURRENT_TIMESTAMP</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>注册时间<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>tags<span class="pl-pds">`</span></span> <span class="pl-k">VARCHAR</span>(<span class="pl-c1">200</span>) COMMENT <span class="pl-s"><span class="pl-pds">'</span>学习标签（逗号分隔，如：时政,编程,英语）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>avatar<span class="pl-pds">`</span></span> <span class="pl-k">VARCHAR</span>(<span class="pl-c1">255</span>) COMMENT <span class="pl-s"><span class="pl-pds">'</span>头像链接<span class="pl-pds">'</span></span>,
+  <span class="pl-c"><span class="pl-c">--</span> 域完整性约束：手机号格式验证（MySQL8.0+支持CHECK）</span>
+  <span class="pl-k">CONSTRAINT</span> chk_phone <span class="pl-k">CHECK</span> (phone REGEXP <span class="pl-s"><span class="pl-pds">'</span>^1[3-9]<span class="pl-cce">\\</span>d{9}$<span class="pl-pds">'</span></span> <span class="pl-k">OR</span> phone IS <span class="pl-k">NULL</span>),
+  <span class="pl-c"><span class="pl-c">--</span> 域完整性约束：邮箱格式验证</span>
+  <span class="pl-k">CONSTRAINT</span> chk_email <span class="pl-k">CHECK</span> (email REGEXP <span class="pl-s"><span class="pl-pds">'</span>^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(<span class="pl-cce">\\</span>.[a-zA-Z0-9_-]+)+$<span class="pl-pds">'</span></span> <span class="pl-k">OR</span> email IS <span class="pl-k">NULL</span>)
+) ENGINE<span class="pl-k">=</span>InnoDB DEFAULT CHARSET<span class="pl-k">=</span>utf8mb4 COMMENT<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>用户表<span class="pl-pds">'</span></span>;</pre></div>
+<h4>4.2.2 学习内容表（Content）</h4>
+<div class="highlight highlight-source-sql"><pre class="notranslate"><span class="pl-k">CREATE</span> <span class="pl-k">TABLE</span> <span class="pl-en">IF</span> NOT EXISTS <span class="pl-s"><span class="pl-pds">`</span>Content<span class="pl-pds">`</span></span> (
+  <span class="pl-s"><span class="pl-pds">`</span>content_id<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">PRIMARY KEY</span> AUTO_INCREMENT COMMENT <span class="pl-s"><span class="pl-pds">'</span>内容ID（主键）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>title<span class="pl-pds">`</span></span> <span class="pl-k">VARCHAR</span>(<span class="pl-c1">200</span>) <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>内容标题<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>type<span class="pl-pds">`</span></span> ENUM(<span class="pl-s"><span class="pl-pds">'</span>article<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>video<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>live<span class="pl-pds">'</span></span>) <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>内容类型（文章/视频/直播）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>category<span class="pl-pds">`</span></span> <span class="pl-k">VARCHAR</span>(<span class="pl-c1">50</span>) <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>内容分类（如：时政、教育、编程）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>url<span class="pl-pds">`</span></span> <span class="pl-k">VARCHAR</span>(<span class="pl-c1">255</span>) <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>内容访问链接<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>publish_time<span class="pl-pds">`</span></span> DATETIME <span class="pl-k">NOT NULL</span> DEFAULT <span class="pl-c1">CURRENT_TIMESTAMP</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>发布时间<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>author<span class="pl-pds">`</span></span> <span class="pl-k">VARCHAR</span>(<span class="pl-c1">50</span>) <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>作者<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>intro<span class="pl-pds">`</span></span> <span class="pl-k">TEXT</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>内容简介<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>duration<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>时长（秒，仅视频/直播有效）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>hot<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">NOT NULL</span> DEFAULT <span class="pl-c1">0</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>热度（浏览量）<span class="pl-pds">'</span></span>,
+  <span class="pl-c"><span class="pl-c">--</span> 索引优化：按分类查询内容</span>
+  INDEX idx_category (<span class="pl-s"><span class="pl-pds">`</span>category<span class="pl-pds">`</span></span>),
+  <span class="pl-c"><span class="pl-c">--</span> 索引优化：按类型+热度排序查询</span>
+  INDEX idx_type_hot (<span class="pl-s"><span class="pl-pds">`</span>type<span class="pl-pds">`</span></span>, <span class="pl-s"><span class="pl-pds">`</span>hot<span class="pl-pds">`</span></span> <span class="pl-k">DESC</span>)
+) ENGINE<span class="pl-k">=</span>InnoDB DEFAULT CHARSET<span class="pl-k">=</span>utf8mb4 COMMENT<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>学习内容表<span class="pl-pds">'</span></span>;</pre></div>
+<h4>4.2.3 学习记录表（LearningRecord）</h4>
+<div class="highlight highlight-source-sql"><pre class="notranslate"><span class="pl-k">CREATE</span> <span class="pl-k">TABLE</span> <span class="pl-en">IF</span> NOT EXISTS <span class="pl-s"><span class="pl-pds">`</span>LearningRecord<span class="pl-pds">`</span></span> (
+  <span class="pl-s"><span class="pl-pds">`</span>record_id<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">PRIMARY KEY</span> AUTO_INCREMENT COMMENT <span class="pl-s"><span class="pl-pds">'</span>记录ID（主键）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>用户ID（外键）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>content_id<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>内容ID（外键）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>start_time<span class="pl-pds">`</span></span> DATETIME <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>学习开始时间<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>end_time<span class="pl-pds">`</span></span> DATETIME COMMENT <span class="pl-s"><span class="pl-pds">'</span>学习结束时间<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>progress<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">NOT NULL</span> DEFAULT <span class="pl-c1">0</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>学习进度（百分比）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>is_finish<span class="pl-pds">`</span></span> <span class="pl-k">TINYINT</span>(<span class="pl-c1">1</span>) <span class="pl-k">NOT NULL</span> DEFAULT <span class="pl-c1">0</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>是否完成（0=未完成，1=完成）<span class="pl-pds">'</span></span>,
+  <span class="pl-c"><span class="pl-c">--</span> 参照完整性约束：关联用户表</span>
+  <span class="pl-k">FOREIGN KEY</span> (<span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span>) <span class="pl-k">REFERENCES</span> <span class="pl-s"><span class="pl-pds">`</span>User<span class="pl-pds">`</span></span>(<span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span>) <span class="pl-k">ON DELETE CASCADE</span>,
+  <span class="pl-c"><span class="pl-c">--</span> 参照完整性约束：关联内容表</span>
+  <span class="pl-k">FOREIGN KEY</span> (<span class="pl-s"><span class="pl-pds">`</span>content_id<span class="pl-pds">`</span></span>) <span class="pl-k">REFERENCES</span> <span class="pl-s"><span class="pl-pds">`</span>Content<span class="pl-pds">`</span></span>(<span class="pl-s"><span class="pl-pds">`</span>content_id<span class="pl-pds">`</span></span>) <span class="pl-k">ON DELETE CASCADE</span>,
+  <span class="pl-c"><span class="pl-c">--</span> 业务完整性：同一用户同一内容仅一条有效记录（避免重复）</span>
+  UNIQUE KEY uk_user_content (<span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span>, <span class="pl-s"><span class="pl-pds">`</span>content_id<span class="pl-pds">`</span></span>),
+  <span class="pl-c"><span class="pl-c">--</span> 索引优化：查询用户学习记录</span>
+  INDEX idx_user_id (<span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span>)
+) ENGINE<span class="pl-k">=</span>InnoDB DEFAULT CHARSET<span class="pl-k">=</span>utf8mb4 COMMENT<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>学习记录表<span class="pl-pds">'</span></span>;</pre></div>
+<h4>4.2.4 任务表（Task）</h4>
+<div class="highlight highlight-source-sql"><pre class="notranslate"><span class="pl-k">CREATE</span> <span class="pl-k">TABLE</span> <span class="pl-en">IF</span> NOT EXISTS <span class="pl-s"><span class="pl-pds">`</span>Task<span class="pl-pds">`</span></span> (
+  <span class="pl-s"><span class="pl-pds">`</span>task_id<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">PRIMARY KEY</span> AUTO_INCREMENT COMMENT <span class="pl-s"><span class="pl-pds">'</span>任务ID（主键）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>task_name<span class="pl-pds">`</span></span> <span class="pl-k">VARCHAR</span>(<span class="pl-c1">100</span>) <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>任务名称<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>description<span class="pl-pds">`</span></span> <span class="pl-k">TEXT</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>任务描述<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>point<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>积分奖励（≥0）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>task_type<span class="pl-pds">`</span></span> <span class="pl-k">VARCHAR</span>(<span class="pl-c1">50</span>) <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>任务类型（如：每日登录、学习30分钟、发布评论）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>start_time<span class="pl-pds">`</span></span> DATETIME <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>任务开始时间<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>end_time<span class="pl-pds">`</span></span> DATETIME <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>任务结束时间<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>status<span class="pl-pds">`</span></span> ENUM(<span class="pl-s"><span class="pl-pds">'</span>pending<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>ongoing<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>ended<span class="pl-pds">'</span></span>) <span class="pl-k">NOT NULL</span> DEFAULT <span class="pl-s"><span class="pl-pds">'</span>pending<span class="pl-pds">'</span></span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>任务状态（未开始/进行中/已结束）<span class="pl-pds">'</span></span>,
+  <span class="pl-c"><span class="pl-c">--</span> 业务完整性：积分奖励不可为负</span>
+  <span class="pl-k">CONSTRAINT</span> chk_point <span class="pl-k">CHECK</span> (<span class="pl-s"><span class="pl-pds">`</span>point<span class="pl-pds">`</span></span> <span class="pl-k">&gt;=</span> <span class="pl-c1">0</span>),
+  <span class="pl-c"><span class="pl-c">--</span> 索引优化：按状态+类型查询任务</span>
+  INDEX idx_status_type (<span class="pl-s"><span class="pl-pds">`</span>status<span class="pl-pds">`</span></span>, <span class="pl-s"><span class="pl-pds">`</span>task_type<span class="pl-pds">`</span></span>)
+) ENGINE<span class="pl-k">=</span>InnoDB DEFAULT CHARSET<span class="pl-k">=</span>utf8mb4 COMMENT<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>任务表<span class="pl-pds">'</span></span>;</pre></div>
+<h4>4.2.5 任务完成记录表（TaskRecord）</h4>
+<div class="highlight highlight-source-sql"><pre class="notranslate"><span class="pl-k">CREATE</span> <span class="pl-k">TABLE</span> <span class="pl-en">IF</span> NOT EXISTS <span class="pl-s"><span class="pl-pds">`</span>TaskRecord<span class="pl-pds">`</span></span> (
+  <span class="pl-s"><span class="pl-pds">`</span>task_record_id<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">PRIMARY KEY</span> AUTO_INCREMENT COMMENT <span class="pl-s"><span class="pl-pds">'</span>记录ID（主键）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>用户ID（外键）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>task_id<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>任务ID（外键）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>finish_time<span class="pl-pds">`</span></span> DATETIME <span class="pl-k">NOT NULL</span> DEFAULT <span class="pl-c1">CURRENT_TIMESTAMP</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>完成时间<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>verify_status<span class="pl-pds">`</span></span> ENUM(<span class="pl-s"><span class="pl-pds">'</span>pending<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>passed<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>rejected<span class="pl-pds">'</span></span>) <span class="pl-k">NOT NULL</span> DEFAULT <span class="pl-s"><span class="pl-pds">'</span>passed<span class="pl-pds">'</span></span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>验证状态（默认通过，复杂任务需审核）<span class="pl-pds">'</span></span>,
+  <span class="pl-c"><span class="pl-c">--</span> 参照完整性约束：关联用户表</span>
+  <span class="pl-k">FOREIGN KEY</span> (<span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span>) <span class="pl-k">REFERENCES</span> <span class="pl-s"><span class="pl-pds">`</span>User<span class="pl-pds">`</span></span>(<span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span>) <span class="pl-k">ON DELETE CASCADE</span>,
+  <span class="pl-c"><span class="pl-c">--</span> 参照完整性约束：关联任务表</span>
+  <span class="pl-k">FOREIGN KEY</span> (<span class="pl-s"><span class="pl-pds">`</span>task_id<span class="pl-pds">`</span></span>) <span class="pl-k">REFERENCES</span> <span class="pl-s"><span class="pl-pds">`</span>Task<span class="pl-pds">`</span></span>(<span class="pl-s"><span class="pl-pds">`</span>task_id<span class="pl-pds">`</span></span>) <span class="pl-k">ON DELETE CASCADE</span>,
+  <span class="pl-c"><span class="pl-c">--</span> 业务完整性：同一用户同一任务仅完成一次</span>
+  UNIQUE KEY uk_user_task (<span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span>, <span class="pl-s"><span class="pl-pds">`</span>task_id<span class="pl-pds">`</span></span>),
+  <span class="pl-c"><span class="pl-c">--</span> 索引优化：查询用户完成的任务</span>
+  INDEX idx_user_task (<span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span>, <span class="pl-s"><span class="pl-pds">`</span>task_id<span class="pl-pds">`</span></span>)
+) ENGINE<span class="pl-k">=</span>InnoDB DEFAULT CHARSET<span class="pl-k">=</span>utf8mb4 COMMENT<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>任务完成记录表<span class="pl-pds">'</span></span>;</pre></div>
+<h4>4.2.6 积分记录表（PointRecord）</h4>
+<div class="highlight highlight-source-sql"><pre class="notranslate"><span class="pl-k">CREATE</span> <span class="pl-k">TABLE</span> <span class="pl-en">IF</span> NOT EXISTS <span class="pl-s"><span class="pl-pds">`</span>PointRecord<span class="pl-pds">`</span></span> (
+  <span class="pl-s"><span class="pl-pds">`</span>point_record_id<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">PRIMARY KEY</span> AUTO_INCREMENT COMMENT <span class="pl-s"><span class="pl-pds">'</span>记录ID（主键）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>用户ID（外键）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>point_value<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>积分值（正数=增加，负数=扣除）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>type<span class="pl-pds">`</span></span> <span class="pl-k">VARCHAR</span>(<span class="pl-c1">50</span>) <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>变动类型（如：完成任务、兑换商品、评论奖励）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>related_id<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>关联ID（如任务ID、商品ID）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>create_time<span class="pl-pds">`</span></span> DATETIME <span class="pl-k">NOT NULL</span> DEFAULT <span class="pl-c1">CURRENT_TIMESTAMP</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>变动时间<span class="pl-pds">'</span></span>,
+  <span class="pl-c"><span class="pl-c">--</span> 参照完整性约束：关联用户表</span>
+  <span class="pl-k">FOREIGN KEY</span> (<span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span>) <span class="pl-k">REFERENCES</span> <span class="pl-s"><span class="pl-pds">`</span>User<span class="pl-pds">`</span></span>(<span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span>) <span class="pl-k">ON DELETE CASCADE</span>,
+  <span class="pl-c"><span class="pl-c">--</span> 索引优化：查询用户积分变动记录</span>
+  INDEX idx_user_time (<span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span>, <span class="pl-s"><span class="pl-pds">`</span>create_time<span class="pl-pds">`</span></span> <span class="pl-k">DESC</span>)
+) ENGINE<span class="pl-k">=</span>InnoDB DEFAULT CHARSET<span class="pl-k">=</span>utf8mb4 COMMENT<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>积分记录表<span class="pl-pds">'</span></span>;</pre></div>
+<h4>4.2.7 评论表（Comment）</h4>
+<div class="highlight highlight-source-sql"><pre class="notranslate"><span class="pl-k">CREATE</span> <span class="pl-k">TABLE</span> <span class="pl-en">IF</span> NOT EXISTS <span class="pl-s"><span class="pl-pds">`</span>Comment<span class="pl-pds">`</span></span> (
+  <span class="pl-s"><span class="pl-pds">`</span>comment_id<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">PRIMARY KEY</span> AUTO_INCREMENT COMMENT <span class="pl-s"><span class="pl-pds">'</span>评论ID（主键）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>用户ID（外键）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>content_id<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>内容ID（外键）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>content<span class="pl-pds">`</span></span> <span class="pl-k">TEXT</span> <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>评论内容<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>create_time<span class="pl-pds">`</span></span> DATETIME <span class="pl-k">NOT NULL</span> DEFAULT <span class="pl-c1">CURRENT_TIMESTAMP</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>评论时间<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>like_count<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">NOT NULL</span> DEFAULT <span class="pl-c1">0</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>点赞数<span class="pl-pds">'</span></span>,
+  <span class="pl-c"><span class="pl-c">--</span> 参照完整性约束：关联用户表</span>
+  <span class="pl-k">FOREIGN KEY</span> (<span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span>) <span class="pl-k">REFERENCES</span> <span class="pl-s"><span class="pl-pds">`</span>User<span class="pl-pds">`</span></span>(<span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span>) <span class="pl-k">ON DELETE CASCADE</span>,
+  <span class="pl-c"><span class="pl-c">--</span> 参照完整性约束：关联内容表</span>
+  <span class="pl-k">FOREIGN KEY</span> (<span class="pl-s"><span class="pl-pds">`</span>content_id<span class="pl-pds">`</span></span>) <span class="pl-k">REFERENCES</span> <span class="pl-s"><span class="pl-pds">`</span>Content<span class="pl-pds">`</span></span>(<span class="pl-s"><span class="pl-pds">`</span>content_id<span class="pl-pds">`</span></span>) <span class="pl-k">ON DELETE CASCADE</span>,
+  <span class="pl-c"><span class="pl-c">--</span> 索引优化：查询内容的评论</span>
+  INDEX idx_content_id (<span class="pl-s"><span class="pl-pds">`</span>content_id<span class="pl-pds">`</span></span>, <span class="pl-s"><span class="pl-pds">`</span>create_time<span class="pl-pds">`</span></span> <span class="pl-k">DESC</span>)
+) ENGINE<span class="pl-k">=</span>InnoDB DEFAULT CHARSET<span class="pl-k">=</span>utf8mb4 COMMENT<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>评论表<span class="pl-pds">'</span></span>;</pre></div>
+<h4>4.2.8 收藏表（Collection）</h4>
+<div class="highlight highlight-source-sql"><pre class="notranslate"><span class="pl-k">CREATE</span> <span class="pl-k">TABLE</span> <span class="pl-en">IF</span> NOT EXISTS <span class="pl-s"><span class="pl-pds">`</span>Collection<span class="pl-pds">`</span></span> (
+  <span class="pl-s"><span class="pl-pds">`</span>collect_id<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">PRIMARY KEY</span> AUTO_INCREMENT COMMENT <span class="pl-s"><span class="pl-pds">'</span>收藏ID（主键）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>用户ID（外键）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>content_id<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>内容ID（外键）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>collect_time<span class="pl-pds">`</span></span> DATETIME <span class="pl-k">NOT NULL</span> DEFAULT <span class="pl-c1">CURRENT_TIMESTAMP</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>收藏时间<span class="pl-pds">'</span></span>,
+  <span class="pl-c"><span class="pl-c">--</span> 参照完整性约束：关联用户表</span>
+  <span class="pl-k">FOREIGN KEY</span> (<span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span>) <span class="pl-k">REFERENCES</span> <span class="pl-s"><span class="pl-pds">`</span>User<span class="pl-pds">`</span></span>(<span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span>) <span class="pl-k">ON DELETE CASCADE</span>,
+  <span class="pl-c"><span class="pl-c">--</span> 参照完整性约束：关联内容表</span>
+  <span class="pl-k">FOREIGN KEY</span> (<span class="pl-s"><span class="pl-pds">`</span>content_id<span class="pl-pds">`</span></span>) <span class="pl-k">REFERENCES</span> <span class="pl-s"><span class="pl-pds">`</span>Content<span class="pl-pds">`</span></span>(<span class="pl-s"><span class="pl-pds">`</span>content_id<span class="pl-pds">`</span></span>) <span class="pl-k">ON DELETE CASCADE</span>,
+  <span class="pl-c"><span class="pl-c">--</span> 业务完整性：同一用户同一内容仅收藏一次</span>
+  UNIQUE KEY uk_user_collect (<span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span>, <span class="pl-s"><span class="pl-pds">`</span>content_id<span class="pl-pds">`</span></span>),
+  <span class="pl-c"><span class="pl-c">--</span> 索引优化：查询用户收藏的内容</span>
+  INDEX idx_user_collect (<span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span>)
+) ENGINE<span class="pl-k">=</span>InnoDB DEFAULT CHARSET<span class="pl-k">=</span>utf8mb4 COMMENT<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>收藏表<span class="pl-pds">'</span></span>;</pre></div>
+<h4>4.2.9 学习小组表（Group）</h4>
+<div class="highlight highlight-source-sql"><pre class="notranslate"><span class="pl-k">CREATE</span> <span class="pl-k">TABLE</span> <span class="pl-en">IF</span> NOT EXISTS <span class="pl-s"><span class="pl-pds">`</span>Group<span class="pl-pds">`</span></span> (
+  <span class="pl-s"><span class="pl-pds">`</span>group_id<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">PRIMARY KEY</span> AUTO_INCREMENT COMMENT <span class="pl-s"><span class="pl-pds">'</span>小组ID（主键）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>group_name<span class="pl-pds">`</span></span> <span class="pl-k">VARCHAR</span>(<span class="pl-c1">100</span>) <span class="pl-k">NOT NULL</span> UNIQUE COMMENT <span class="pl-s"><span class="pl-pds">'</span>小组名称（唯一）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>creator_id<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>创建者ID（外键）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>create_time<span class="pl-pds">`</span></span> DATETIME <span class="pl-k">NOT NULL</span> DEFAULT <span class="pl-c1">CURRENT_TIMESTAMP</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>创建时间<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>intro<span class="pl-pds">`</span></span> <span class="pl-k">TEXT</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>小组简介<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>member_count<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">NOT NULL</span> DEFAULT <span class="pl-c1">1</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>成员数量（默认包含创建者）<span class="pl-pds">'</span></span>,
+  <span class="pl-c"><span class="pl-c">--</span> 参照完整性约束：关联用户表（创建者）</span>
+  <span class="pl-k">FOREIGN KEY</span> (<span class="pl-s"><span class="pl-pds">`</span>creator_id<span class="pl-pds">`</span></span>) <span class="pl-k">REFERENCES</span> <span class="pl-s"><span class="pl-pds">`</span>User<span class="pl-pds">`</span></span>(<span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span>) <span class="pl-k">ON DELETE CASCADE</span>,
+  <span class="pl-c"><span class="pl-c">--</span> 索引优化：查询创建者的小组</span>
+  INDEX idx_creator_id (<span class="pl-s"><span class="pl-pds">`</span>creator_id<span class="pl-pds">`</span></span>)
+) ENGINE<span class="pl-k">=</span>InnoDB DEFAULT CHARSET<span class="pl-k">=</span>utf8mb4 COMMENT<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>学习小组表<span class="pl-pds">'</span></span>;</pre></div>
+<h4>4.2.10 小组成员表（GroupMember）</h4>
+<div class="highlight highlight-source-sql"><pre class="notranslate"><span class="pl-k">CREATE</span> <span class="pl-k">TABLE</span> <span class="pl-en">IF</span> NOT EXISTS <span class="pl-s"><span class="pl-pds">`</span>GroupMember<span class="pl-pds">`</span></span> (
+  <span class="pl-s"><span class="pl-pds">`</span>gm_id<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">PRIMARY KEY</span> AUTO_INCREMENT COMMENT <span class="pl-s"><span class="pl-pds">'</span>关联ID（主键）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>group_id<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>小组ID（外键）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>用户ID（外键）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>join_time<span class="pl-pds">`</span></span> DATETIME <span class="pl-k">NOT NULL</span> DEFAULT <span class="pl-c1">CURRENT_TIMESTAMP</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>加入时间<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>role<span class="pl-pds">`</span></span> ENUM(<span class="pl-s"><span class="pl-pds">'</span>creator<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>admin<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>member<span class="pl-pds">'</span></span>) <span class="pl-k">NOT NULL</span> DEFAULT <span class="pl-s"><span class="pl-pds">'</span>member<span class="pl-pds">'</span></span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>角色（创建者/管理员/普通成员）<span class="pl-pds">'</span></span>,
+  <span class="pl-c"><span class="pl-c">--</span> 参照完整性约束：关联小组表</span>
+  <span class="pl-k">FOREIGN KEY</span> (<span class="pl-s"><span class="pl-pds">`</span>group_id<span class="pl-pds">`</span></span>) <span class="pl-k">REFERENCES</span> <span class="pl-s"><span class="pl-pds">`</span>Group<span class="pl-pds">`</span></span>(<span class="pl-s"><span class="pl-pds">`</span>group_id<span class="pl-pds">`</span></span>) <span class="pl-k">ON DELETE CASCADE</span>,
+  <span class="pl-c"><span class="pl-c">--</span> 参照完整性约束：关联用户表</span>
+  <span class="pl-k">FOREIGN KEY</span> (<span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span>) <span class="pl-k">REFERENCES</span> <span class="pl-s"><span class="pl-pds">`</span>User<span class="pl-pds">`</span></span>(<span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span>) <span class="pl-k">ON DELETE CASCADE</span>,
+  <span class="pl-c"><span class="pl-c">--</span> 业务完整性：同一用户同一小组仅加入一次</span>
+  UNIQUE KEY uk_group_user (<span class="pl-s"><span class="pl-pds">`</span>group_id<span class="pl-pds">`</span></span>, <span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span>),
+  <span class="pl-c"><span class="pl-c">--</span> 索引优化：查询小组成员</span>
+  INDEX idx_group_id (<span class="pl-s"><span class="pl-pds">`</span>group_id<span class="pl-pds">`</span></span>)
+) ENGINE<span class="pl-k">=</span>InnoDB DEFAULT CHARSET<span class="pl-k">=</span>utf8mb4 COMMENT<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>小组成员表<span class="pl-pds">'</span></span>;</pre></div>
+<h4>4.2.11 积分兑换商品表（ExchangeGoods）</h4>
+<div class="highlight highlight-source-sql"><pre class="notranslate"><span class="pl-k">CREATE</span> <span class="pl-k">TABLE</span> <span class="pl-en">IF</span> NOT EXISTS <span class="pl-s"><span class="pl-pds">`</span>ExchangeGoods<span class="pl-pds">`</span></span> (
+  <span class="pl-s"><span class="pl-pds">`</span>goods_id<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">PRIMARY KEY</span> AUTO_INCREMENT COMMENT <span class="pl-s"><span class="pl-pds">'</span>商品ID（主键）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>goods_name<span class="pl-pds">`</span></span> <span class="pl-k">VARCHAR</span>(<span class="pl-c1">100</span>) <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>商品名称<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>goods_type<span class="pl-pds">`</span></span> ENUM(<span class="pl-s"><span class="pl-pds">'</span>virtual<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>physical<span class="pl-pds">'</span></span>) <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>商品类型（虚拟/实物）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>need_point<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>所需积分（≥0）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>stock<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">NOT NULL</span> DEFAULT <span class="pl-c1">0</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>库存<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>shelf_time<span class="pl-pds">`</span></span> DATETIME <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>上架时间<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>off_shelf_time<span class="pl-pds">`</span></span> DATETIME COMMENT <span class="pl-s"><span class="pl-pds">'</span>下架时间<span class="pl-pds">'</span></span>,
+  <span class="pl-c"><span class="pl-c">--</span> 业务完整性：所需积分不可为负，库存不可为负</span>
+  <span class="pl-k">CONSTRAINT</span> chk_need_point <span class="pl-k">CHECK</span> (<span class="pl-s"><span class="pl-pds">`</span>need_point<span class="pl-pds">`</span></span> <span class="pl-k">&gt;=</span> <span class="pl-c1">0</span>),
+  <span class="pl-k">CONSTRAINT</span> chk_stock <span class="pl-k">CHECK</span> (<span class="pl-s"><span class="pl-pds">`</span>stock<span class="pl-pds">`</span></span> <span class="pl-k">&gt;=</span> <span class="pl-c1">0</span>),
+  <span class="pl-c"><span class="pl-c">--</span> 索引优化：按所需积分查询商品</span>
+  INDEX idx_need_point (<span class="pl-s"><span class="pl-pds">`</span>need_point<span class="pl-pds">`</span></span>),
+  <span class="pl-c"><span class="pl-c">--</span> 索引优化：按库存+上架状态查询</span>
+  INDEX idx_stock_shelf (<span class="pl-s"><span class="pl-pds">`</span>stock<span class="pl-pds">`</span></span>, <span class="pl-s"><span class="pl-pds">`</span>shelf_time<span class="pl-pds">`</span></span>, <span class="pl-s"><span class="pl-pds">`</span>off_shelf_time<span class="pl-pds">`</span></span>)
+) ENGINE<span class="pl-k">=</span>InnoDB DEFAULT CHARSET<span class="pl-k">=</span>utf8mb4 COMMENT<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>积分兑换商品表<span class="pl-pds">'</span></span>;</pre></div>
+<h4>4.2.12 兑换记录表（ExchangeRecord）</h4>
+<div class="highlight highlight-source-sql"><pre class="notranslate"><span class="pl-k">CREATE</span> <span class="pl-k">TABLE</span> <span class="pl-en">IF</span> NOT EXISTS <span class="pl-s"><span class="pl-pds">`</span>ExchangeRecord<span class="pl-pds">`</span></span> (
+  <span class="pl-s"><span class="pl-pds">`</span>exchange_id<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">PRIMARY KEY</span> AUTO_INCREMENT COMMENT <span class="pl-s"><span class="pl-pds">'</span>记录ID（主键）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>用户ID（外键）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>goods_id<span class="pl-pds">`</span></span> <span class="pl-k">INT</span> <span class="pl-k">NOT NULL</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>商品ID（外键）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>exchange_time<span class="pl-pds">`</span></span> DATETIME <span class="pl-k">NOT NULL</span> DEFAULT <span class="pl-c1">CURRENT_TIMESTAMP</span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>兑换时间<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>logistics<span class="pl-pds">`</span></span> <span class="pl-k">VARCHAR</span>(<span class="pl-c1">255</span>) COMMENT <span class="pl-s"><span class="pl-pds">'</span>物流信息（仅实物商品有效）<span class="pl-pds">'</span></span>,
+  <span class="pl-s"><span class="pl-pds">`</span>status<span class="pl-pds">`</span></span> ENUM(<span class="pl-s"><span class="pl-pds">'</span>pending<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>delivered<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>received<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>cancelled<span class="pl-pds">'</span></span>) <span class="pl-k">NOT NULL</span> DEFAULT <span class="pl-s"><span class="pl-pds">'</span>pending<span class="pl-pds">'</span></span> COMMENT <span class="pl-s"><span class="pl-pds">'</span>兑换状态<span class="pl-pds">'</span></span>,
+  <span class="pl-c"><span class="pl-c">--</span> 参照完整性约束：关联用户表</span>
+  <span class="pl-k">FOREIGN KEY</span> (<span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span>) <span class="pl-k">REFERENCES</span> <span class="pl-s"><span class="pl-pds">`</span>User<span class="pl-pds">`</span></span>(<span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span>) <span class="pl-k">ON DELETE CASCADE</span>,
+  <span class="pl-c"><span class="pl-c">--</span> 参照完整性约束：关联商品表</span>
+  <span class="pl-k">FOREIGN KEY</span> (<span class="pl-s"><span class="pl-pds">`</span>goods_id<span class="pl-pds">`</span></span>) <span class="pl-k">REFERENCES</span> <span class="pl-s"><span class="pl-pds">`</span>ExchangeGoods<span class="pl-pds">`</span></span>(<span class="pl-s"><span class="pl-pds">`</span>goods_id<span class="pl-pds">`</span></span>) <span class="pl-k">ON DELETE CASCADE</span>,
+  <span class="pl-c"><span class="pl-c">--</span> 索引优化：查询用户兑换记录</span>
+  INDEX idx_user_exchange (<span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span>, <span class="pl-s"><span class="pl-pds">`</span>exchange_time<span class="pl-pds">`</span></span> <span class="pl-k">DESC</span>),
+  <span class="pl-c"><span class="pl-c">--</span> 索引优化：查询商品兑换记录</span>
+  INDEX idx_goods_exchange (<span class="pl-s"><span class="pl-pds">`</span>goods_id<span class="pl-pds">`</span></span>)
+) ENGINE<span class="pl-k">=</span>InnoDB DEFAULT CHARSET<span class="pl-k">=</span>utf8mb4 COMMENT<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>兑换记录表<span class="pl-pds">'</span></span>;</pre></div>
+<h3>4.3 视图创建语句</h3>
+<h4>4.3.1 用户积分总览视图（查看用户当前总积分）</h4>
+<div class="highlight highlight-source-sql"><pre class="notranslate"><span class="pl-k">CREATE</span> <span class="pl-k">VIEW</span> `<span class="pl-en">UserTotalPoint</span>` <span class="pl-k">AS</span>
+<span class="pl-k">SELECT</span> 
+  <span class="pl-c1">u</span>.<span class="pl-c1">user_id</span>,
+  <span class="pl-c1">u</span>.<span class="pl-c1">username</span>,
+  COALESCE(<span class="pl-c1">SUM</span>(<span class="pl-c1">pr</span>.<span class="pl-c1">point_value</span>), <span class="pl-c1">0</span>) <span class="pl-k">AS</span> total_point  <span class="pl-c"><span class="pl-c">--</span> 积分求和，无记录时为0</span>
+<span class="pl-k">FROM</span> 
+  <span class="pl-s"><span class="pl-pds">`</span>User<span class="pl-pds">`</span></span> u
+<span class="pl-k">LEFT JOIN</span> 
+  <span class="pl-s"><span class="pl-pds">`</span>PointRecord<span class="pl-pds">`</span></span> pr <span class="pl-k">ON</span> <span class="pl-c1">u</span>.<span class="pl-c1">user_id</span> <span class="pl-k">=</span> <span class="pl-c1">pr</span>.<span class="pl-c1">user_id</span>
+<span class="pl-k">GROUP BY</span> 
+  <span class="pl-c1">u</span>.<span class="pl-c1">user_id</span>, <span class="pl-c1">u</span>.<span class="pl-c1">username</span>
+<span class="pl-k">ORDER BY</span> 
+  total_point <span class="pl-k">DESC</span>;</pre></div>
+<h4>4.3.2 热门内容视图（查看热度前10的内容）</h4>
+<div class="highlight highlight-source-sql"><pre class="notranslate"><span class="pl-k">CREATE</span> <span class="pl-k">VIEW</span> `<span class="pl-en">HotContentTop10</span>` <span class="pl-k">AS</span>
+<span class="pl-k">SELECT</span> 
+  <span class="pl-c1">c</span>.<span class="pl-c1">content_id</span>,
+  <span class="pl-c1">c</span>.<span class="pl-c1">title</span>,
+  <span class="pl-c1">c</span>.<span class="pl-c1">type</span>,
+  <span class="pl-c1">c</span>.<span class="pl-c1">category</span>,
+  <span class="pl-c1">c</span>.<span class="pl-c1">author</span>,
+  <span class="pl-c1">c</span>.<span class="pl-c1">hot</span>,
+  <span class="pl-c1">c</span>.<span class="pl-c1">publish_time</span>
+<span class="pl-k">FROM</span> 
+  <span class="pl-s"><span class="pl-pds">`</span>Content<span class="pl-pds">`</span></span> c
+<span class="pl-k">WHERE</span> 
+  <span class="pl-c1">c</span>.<span class="pl-c1">publish_time</span> <span class="pl-k">&gt;=</span> DATE_SUB(NOW(), INTERVAL <span class="pl-c1">7</span> DAY)  <span class="pl-c"><span class="pl-c">--</span> 近7天发布的内容</span>
+<span class="pl-k">ORDER BY</span> 
+  <span class="pl-c1">c</span>.<span class="pl-c1">hot</span> <span class="pl-k">DESC</span>
+<span class="pl-k">LIMIT</span> <span class="pl-c1">10</span>;</pre></div>
+<h4>4.3.3 小组成员统计视图（查看各小组成员数量及详情）</h4>
+<div class="highlight highlight-source-sql"><pre class="notranslate"><span class="pl-k">CREATE</span> <span class="pl-k">VIEW</span> `<span class="pl-en">GroupMemberStat</span>` <span class="pl-k">AS</span>
+<span class="pl-k">SELECT</span> 
+  <span class="pl-c1">g</span>.<span class="pl-c1">group_id</span>,
+  <span class="pl-c1">g</span>.<span class="pl-c1">group_name</span>,
+  <span class="pl-c1">g</span>.<span class="pl-c1">creator_id</span>,
+  <span class="pl-c1">u_creator</span>.<span class="pl-c1">username</span> <span class="pl-k">AS</span> creator_name,
+  <span class="pl-c1">g</span>.<span class="pl-c1">member_count</span>,
+  <span class="pl-c1">COUNT</span>(<span class="pl-c1">gm</span>.<span class="pl-c1">user_id</span>) <span class="pl-k">AS</span> actual_member_count  <span class="pl-c"><span class="pl-c">--</span> 实际成员数（与group表冗余字段校验）</span>
+<span class="pl-k">FROM</span> 
+  <span class="pl-s"><span class="pl-pds">`</span>Group<span class="pl-pds">`</span></span> g
+<span class="pl-k">LEFT JOIN</span> 
+  <span class="pl-s"><span class="pl-pds">`</span>GroupMember<span class="pl-pds">`</span></span> gm <span class="pl-k">ON</span> <span class="pl-c1">g</span>.<span class="pl-c1">group_id</span> <span class="pl-k">=</span> <span class="pl-c1">gm</span>.<span class="pl-c1">group_id</span>
+<span class="pl-k">LEFT JOIN</span> 
+  <span class="pl-s"><span class="pl-pds">`</span>User<span class="pl-pds">`</span></span> u_creator <span class="pl-k">ON</span> <span class="pl-c1">g</span>.<span class="pl-c1">creator_id</span> <span class="pl-k">=</span> <span class="pl-c1">u_creator</span>.<span class="pl-c1">user_id</span>
+<span class="pl-k">GROUP BY</span> 
+  <span class="pl-c1">g</span>.<span class="pl-c1">group_id</span>, <span class="pl-c1">g</span>.<span class="pl-c1">group_name</span>, <span class="pl-c1">g</span>.<span class="pl-c1">creator_id</span>, <span class="pl-c1">u_creator</span>.<span class="pl-c1">username</span>, <span class="pl-c1">g</span>.<span class="pl-c1">member_count</span>;</pre></div>
+<h4>4.3.4 用户学习完成率视图（查看用户已完成的内容占比）</h4>
+<div class="highlight highlight-source-sql"><pre class="notranslate"><span class="pl-k">CREATE</span> <span class="pl-k">VIEW</span> `<span class="pl-en">UserLearningCompletion</span>` <span class="pl-k">AS</span>
+<span class="pl-k">SELECT</span> 
+  <span class="pl-c1">u</span>.<span class="pl-c1">user_id</span>,
+  <span class="pl-c1">u</span>.<span class="pl-c1">username</span>,
+  <span class="pl-c1">COUNT</span>(<span class="pl-c1">lr</span>.<span class="pl-c1">record_id</span>) <span class="pl-k">AS</span> total_learned,  <span class="pl-c"><span class="pl-c">--</span> 总学习次数</span>
+  <span class="pl-c1">SUM</span>(CASE WHEN <span class="pl-c1">lr</span>.<span class="pl-c1">is_finish</span> <span class="pl-k">=</span> <span class="pl-c1">1</span> THEN <span class="pl-c1">1</span> ELSE <span class="pl-c1">0</span> END) <span class="pl-k">AS</span> finished_count,  <span class="pl-c"><span class="pl-c">--</span> 完成次数</span>
+  CASE 
+    WHEN <span class="pl-c1">COUNT</span>(<span class="pl-c1">lr</span>.<span class="pl-c1">record_id</span>) <span class="pl-k">=</span> <span class="pl-c1">0</span> THEN <span class="pl-c1">0</span> 
+    ELSE ROUND(<span class="pl-c1">SUM</span>(CASE WHEN <span class="pl-c1">lr</span>.<span class="pl-c1">is_finish</span> <span class="pl-k">=</span> <span class="pl-c1">1</span> THEN <span class="pl-c1">1</span> ELSE <span class="pl-c1">0</span> END) <span class="pl-k">/</span> <span class="pl-c1">COUNT</span>(<span class="pl-c1">lr</span>.<span class="pl-c1">record_id</span>) <span class="pl-k">*</span> <span class="pl-c1">100</span>, <span class="pl-c1">2</span>) 
+  END <span class="pl-k">AS</span> completion_rate  <span class="pl-c"><span class="pl-c">--</span> 完成率（百分比）</span>
+<span class="pl-k">FROM</span> 
+  <span class="pl-s"><span class="pl-pds">`</span>User<span class="pl-pds">`</span></span> u
+<span class="pl-k">LEFT JOIN</span> 
+  <span class="pl-s"><span class="pl-pds">`</span>LearningRecord<span class="pl-pds">`</span></span> lr <span class="pl-k">ON</span> <span class="pl-c1">u</span>.<span class="pl-c1">user_id</span> <span class="pl-k">=</span> <span class="pl-c1">lr</span>.<span class="pl-c1">user_id</span>
+<span class="pl-k">GROUP BY</span> 
+  <span class="pl-c1">u</span>.<span class="pl-c1">user_id</span>, <span class="pl-c1">u</span>.<span class="pl-c1">username</span>;</pre></div>
+<h3>4.4 触发器创建语句</h3>
+<h4>4.4.1 完成任务自动添加积分触发器</h4>
+<div class="highlight highlight-source-sql"><pre class="notranslate"><span class="pl-c"><span class="pl-c">--</span> 当用户完成任务（插入TaskRecord）时，自动插入积分记录</span>
+DELIMITER <span class="pl-k">//</span>
+<span class="pl-k">CREATE</span> <span class="pl-k">TRIGGER</span> `<span class="pl-en">after_task_record_insert</span>` AFTER INSERT <span class="pl-k">ON</span> <span class="pl-s"><span class="pl-pds">`</span>TaskRecord<span class="pl-pds">`</span></span>
+FOR EACH ROW
+<span class="pl-k">BEGIN</span>
+  <span class="pl-c"><span class="pl-c">--</span> 查询任务对应的积分奖励</span>
+  DECLARE task_point <span class="pl-k">INT</span>;
+  <span class="pl-k">SELECT</span> <span class="pl-s"><span class="pl-pds">`</span>point<span class="pl-pds">`</span></span> INTO task_point <span class="pl-k">FROM</span> <span class="pl-s"><span class="pl-pds">`</span>Task<span class="pl-pds">`</span></span> <span class="pl-k">WHERE</span> <span class="pl-s"><span class="pl-pds">`</span>task_id<span class="pl-pds">`</span></span> <span class="pl-k">=</span> <span class="pl-c1">NEW</span>.<span class="pl-c1">task_id</span>;
+  
+  <span class="pl-c"><span class="pl-c">--</span> 插入积分记录（增加积分）</span>
+  <span class="pl-k">INSERT INTO</span> <span class="pl-s"><span class="pl-pds">`</span>PointRecord<span class="pl-pds">`</span></span> (<span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span>, <span class="pl-s"><span class="pl-pds">`</span>point_value<span class="pl-pds">`</span></span>, <span class="pl-s"><span class="pl-pds">`</span>type<span class="pl-pds">`</span></span>, <span class="pl-s"><span class="pl-pds">`</span>related_id<span class="pl-pds">`</span></span>)
+  <span class="pl-k">VALUES</span> (<span class="pl-c1">NEW</span>.<span class="pl-c1">user_id</span>, task_point, <span class="pl-s"><span class="pl-pds">'</span>完成任务<span class="pl-pds">'</span></span>, <span class="pl-c1">NEW</span>.<span class="pl-c1">task_id</span>);
+END <span class="pl-k">//</span>
+DELIMITER ;</pre></div>
+<h4>4.4.2 积分兑换商品自动扣除积分触发器</h4>
+<div class="highlight highlight-source-sql"><pre class="notranslate"><span class="pl-c"><span class="pl-c">--</span> 当用户兑换商品（插入ExchangeRecord）时，自动扣除积分</span>
+DELIMITER <span class="pl-k">//</span>
+<span class="pl-k">CREATE</span> <span class="pl-k">TRIGGER</span> `<span class="pl-en">after_exchange_record_insert</span>` AFTER INSERT <span class="pl-k">ON</span> <span class="pl-s"><span class="pl-pds">`</span>ExchangeRecord<span class="pl-pds">`</span></span>
+FOR EACH ROW
+<span class="pl-k">BEGIN</span>
+  <span class="pl-c"><span class="pl-c">--</span> 查询商品所需积分</span>
+  DECLARE goods_point <span class="pl-k">INT</span>;
+  <span class="pl-k">SELECT</span> <span class="pl-s"><span class="pl-pds">`</span>need_point<span class="pl-pds">`</span></span> INTO goods_point <span class="pl-k">FROM</span> <span class="pl-s"><span class="pl-pds">`</span>ExchangeGoods<span class="pl-pds">`</span></span> <span class="pl-k">WHERE</span> <span class="pl-s"><span class="pl-pds">`</span>goods_id<span class="pl-pds">`</span></span> <span class="pl-k">=</span> <span class="pl-c1">NEW</span>.<span class="pl-c1">goods_id</span>;
+  
+  <span class="pl-c"><span class="pl-c">--</span> 插入积分记录（扣除积分，值为负数）</span>
+  <span class="pl-k">INSERT INTO</span> <span class="pl-s"><span class="pl-pds">`</span>PointRecord<span class="pl-pds">`</span></span> (<span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span>, <span class="pl-s"><span class="pl-pds">`</span>point_value<span class="pl-pds">`</span></span>, <span class="pl-s"><span class="pl-pds">`</span>type<span class="pl-pds">`</span></span>, <span class="pl-s"><span class="pl-pds">`</span>related_id<span class="pl-pds">`</span></span>)
+  <span class="pl-k">VALUES</span> (<span class="pl-c1">NEW</span>.<span class="pl-c1">user_id</span>, <span class="pl-k">-</span>goods_point, <span class="pl-s"><span class="pl-pds">'</span>兑换商品<span class="pl-pds">'</span></span>, <span class="pl-c1">NEW</span>.<span class="pl-c1">goods_id</span>);
+  
+  <span class="pl-c"><span class="pl-c">--</span> 减少商品库存</span>
+  <span class="pl-k">UPDATE</span> <span class="pl-s"><span class="pl-pds">`</span>ExchangeGoods<span class="pl-pds">`</span></span> 
+  <span class="pl-k">SET</span> <span class="pl-s"><span class="pl-pds">`</span>stock<span class="pl-pds">`</span></span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">`</span>stock<span class="pl-pds">`</span></span> <span class="pl-k">-</span> <span class="pl-c1">1</span> 
+  <span class="pl-k">WHERE</span> <span class="pl-s"><span class="pl-pds">`</span>goods_id<span class="pl-pds">`</span></span> <span class="pl-k">=</span> <span class="pl-c1">NEW</span>.<span class="pl-c1">goods_id</span>;
+END <span class="pl-k">//</span>
+DELIMITER ;</pre></div>
+<h4>4.4.3 学习内容完成自动更新热度触发器</h4>
+<div class="highlight highlight-source-sql"><pre class="notranslate"><span class="pl-c"><span class="pl-c">--</span> 当用户完成学习（更新LearningRecord的is_finish为1）时，增加内容热度</span>
+DELIMITER <span class="pl-k">//</span>
+<span class="pl-k">CREATE</span> <span class="pl-k">TRIGGER</span> `<span class="pl-en">after_learning_record_update</span>` AFTER <span class="pl-k">UPDATE</span> <span class="pl-k">ON</span> <span class="pl-s"><span class="pl-pds">`</span>LearningRecord<span class="pl-pds">`</span></span>
+FOR EACH ROW
+<span class="pl-k">BEGIN</span>
+  <span class="pl-c"><span class="pl-c">--</span> 仅当学习状态从“未完成”变为“完成”时触发</span>
+  IF <span class="pl-c1">OLD</span>.<span class="pl-c1">is_finish</span> <span class="pl-k">=</span> <span class="pl-c1">0</span> <span class="pl-k">AND</span> <span class="pl-c1">NEW</span>.<span class="pl-c1">is_finish</span> <span class="pl-k">=</span> <span class="pl-c1">1</span> THEN
+    <span class="pl-k">UPDATE</span> <span class="pl-s"><span class="pl-pds">`</span>Content<span class="pl-pds">`</span></span> 
+    <span class="pl-k">SET</span> <span class="pl-s"><span class="pl-pds">`</span>hot<span class="pl-pds">`</span></span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">`</span>hot<span class="pl-pds">`</span></span> <span class="pl-k">+</span> <span class="pl-c1">1</span> 
+    <span class="pl-k">WHERE</span> <span class="pl-s"><span class="pl-pds">`</span>content_id<span class="pl-pds">`</span></span> <span class="pl-k">=</span> <span class="pl-c1">NEW</span>.<span class="pl-c1">content_id</span>;
+  END IF;
+END <span class="pl-k">//</span>
+DELIMITER ;</pre></div>
+<h4>4.4.4 加入小组自动更新小组成员数触发器</h4>
+<div class="highlight highlight-source-sql"><pre class="notranslate"><span class="pl-c"><span class="pl-c">--</span> 当用户加入小组（插入GroupMember）时，更新小组成员数</span>
+DELIMITER <span class="pl-k">//</span>
+<span class="pl-k">CREATE</span> <span class="pl-k">TRIGGER</span> `<span class="pl-en">after_group_member_insert</span>` AFTER INSERT <span class="pl-k">ON</span> <span class="pl-s"><span class="pl-pds">`</span>GroupMember<span class="pl-pds">`</span></span>
+FOR EACH ROW
+<span class="pl-k">BEGIN</span>
+  <span class="pl-k">UPDATE</span> <span class="pl-s"><span class="pl-pds">`</span>Group<span class="pl-pds">`</span></span> 
+  <span class="pl-k">SET</span> <span class="pl-s"><span class="pl-pds">`</span>member_count<span class="pl-pds">`</span></span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">`</span>member_count<span class="pl-pds">`</span></span> <span class="pl-k">+</span> <span class="pl-c1">1</span> 
+  <span class="pl-k">WHERE</span> <span class="pl-s"><span class="pl-pds">`</span>group_id<span class="pl-pds">`</span></span> <span class="pl-k">=</span> <span class="pl-c1">NEW</span>.<span class="pl-c1">group_id</span>;
+END <span class="pl-k">//</span>
+DELIMITER ;
+
+<span class="pl-c"><span class="pl-c">--</span> 当用户退出小组（删除GroupMember）时，更新小组成员数</span>
+DELIMITER <span class="pl-k">//</span>
+<span class="pl-k">CREATE</span> <span class="pl-k">TRIGGER</span> `<span class="pl-en">after_group_member_delete</span>` AFTER <span class="pl-k">DELETE</span> <span class="pl-k">ON</span> <span class="pl-s"><span class="pl-pds">`</span>GroupMember<span class="pl-pds">`</span></span>
+FOR EACH ROW
+<span class="pl-k">BEGIN</span>
+  <span class="pl-k">UPDATE</span> <span class="pl-s"><span class="pl-pds">`</span>Group<span class="pl-pds">`</span></span> 
+  <span class="pl-k">SET</span> <span class="pl-s"><span class="pl-pds">`</span>member_count<span class="pl-pds">`</span></span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">`</span>member_count<span class="pl-pds">`</span></span> <span class="pl-k">-</span> <span class="pl-c1">1</span> 
+  <span class="pl-k">WHERE</span> <span class="pl-s"><span class="pl-pds">`</span>group_id<span class="pl-pds">`</span></span> <span class="pl-k">=</span> <span class="pl-c1">OLD</span>.<span class="pl-c1">group_id</span>;
+END <span class="pl-k">//</span>
+DELIMITER ;</pre></div>
+<h3>4.5 索引创建语句（已在表创建时包含部分索引，补充额外索引）</h3>
+<div class="highlight highlight-source-sql"><pre class="notranslate"><span class="pl-c"><span class="pl-c">--</span> 优化用户登录查询（按手机号/用户名查询）</span>
+<span class="pl-k">CREATE</span> <span class="pl-k">INDEX</span> <span class="pl-en">idx_user_login</span> <span class="pl-k">ON</span> <span class="pl-s"><span class="pl-pds">`</span>User<span class="pl-pds">`</span></span>(<span class="pl-s"><span class="pl-pds">`</span>username<span class="pl-pds">`</span></span>, <span class="pl-s"><span class="pl-pds">`</span>phone<span class="pl-pds">`</span></span>);
+
+<span class="pl-c"><span class="pl-c">--</span> 优化个性化推荐查询（按用户标签查询内容分类）</span>
+<span class="pl-k">CREATE</span> <span class="pl-k">INDEX</span> <span class="pl-en">idx_content_category_tags</span> <span class="pl-k">ON</span> <span class="pl-s"><span class="pl-pds">`</span>Content<span class="pl-pds">`</span></span>(<span class="pl-s"><span class="pl-pds">`</span>category<span class="pl-pds">`</span></span>);
+
+<span class="pl-c"><span class="pl-c">--</span> 优化积分兑换查询（按商品类型+所需积分查询）</span>
+<span class="pl-k">CREATE</span> <span class="pl-k">INDEX</span> <span class="pl-en">idx_goods_type_point</span> <span class="pl-k">ON</span> <span class="pl-s"><span class="pl-pds">`</span>ExchangeGoods<span class="pl-pds">`</span></span>(<span class="pl-s"><span class="pl-pds">`</span>goods_type<span class="pl-pds">`</span></span>, <span class="pl-s"><span class="pl-pds">`</span>need_point<span class="pl-pds">`</span></span>);
+
+<span class="pl-c"><span class="pl-c">--</span> 优化任务查询（按时间范围查询）</span>
+<span class="pl-k">CREATE</span> <span class="pl-k">INDEX</span> <span class="pl-en">idx_task_time</span> <span class="pl-k">ON</span> <span class="pl-s"><span class="pl-pds">`</span>Task<span class="pl-pds">`</span></span>(<span class="pl-s"><span class="pl-pds">`</span>start_time<span class="pl-pds">`</span></span>, <span class="pl-s"><span class="pl-pds">`</span>end_time<span class="pl-pds">`</span></span>);</pre></div>
+<h2>第五章 系统安全性、完整性及性能提升措施</h2>
+<h3>5.1 安全性措施</h3>
+<h4>5.1.1 数据加密</h4>
+<ol>
+<li><strong>密码加密存储</strong>：用户密码不明文存储，采用SHA256算法加密后存入数据库，插入用户时使用<code class="notranslate">SHA2(password, 256)</code>函数，登录时对比加密后的密码。示例：
+<div class="highlight highlight-source-sql"><pre class="notranslate"><span class="pl-c"><span class="pl-c">--</span> 插入用户（密码加密）</span>
+<span class="pl-k">INSERT INTO</span> <span class="pl-s"><span class="pl-pds">`</span>User<span class="pl-pds">`</span></span> (<span class="pl-s"><span class="pl-pds">`</span>username<span class="pl-pds">`</span></span>, <span class="pl-s"><span class="pl-pds">`</span>password<span class="pl-pds">`</span></span>, <span class="pl-s"><span class="pl-pds">`</span>phone<span class="pl-pds">`</span></span>)
+<span class="pl-k">VALUES</span> (<span class="pl-s"><span class="pl-pds">'</span>test_user<span class="pl-pds">'</span></span>, SHA2(<span class="pl-s"><span class="pl-pds">'</span>123456<span class="pl-pds">'</span></span>, <span class="pl-c1">256</span>), <span class="pl-s"><span class="pl-pds">'</span>13800138000<span class="pl-pds">'</span></span>);</pre></div>
+</li>
+<li><strong>敏感数据保护</strong>：用户手机号、邮箱等敏感信息在传输过程中采用HTTPS加密，数据库层面限制敏感字段的查询权限（如管理员仅可查看脱敏后的手机号：138****8000）。</li>
+</ol>
+<h4>5.1.2 权限控制</h4>
+<ol>
+<li><strong>角色分级</strong>：系统分为普通用户（<code class="notranslate">common</code>）和管理员（<code class="notranslate">admin</code>），通过<code class="notranslate">User</code>表的<code class="notranslate">role</code>字段控制权限：
+<ul>
+<li>普通用户：仅可操作自身数据（学习、评论、收藏、兑换），无法修改系统配置。</li>
+<li>管理员：可管理内容、任务、用户（禁用/启用）、商品库存等。</li>
+</ul>
+</li>
+<li><strong>SQL权限分配</strong>：创建专用数据库用户，限制操作权限：
+<div class="highlight highlight-source-sql"><pre class="notranslate"><span class="pl-c"><span class="pl-c">--</span> 创建普通用户（仅查询/插入/更新自身数据）</span>
+<span class="pl-k">CREATE</span> <span class="pl-k">USER</span> '<span class="pl-en">app_user</span>'@<span class="pl-s"><span class="pl-pds">'</span>localhost<span class="pl-pds">'</span></span> IDENTIFIED BY <span class="pl-s"><span class="pl-pds">'</span>App@123456<span class="pl-pds">'</span></span>;
+<span class="pl-k">GRANT</span> <span class="pl-k">SELECT</span>, INSERT, <span class="pl-k">UPDATE</span> <span class="pl-k">ON</span> smart_learning_space.<span class="pl-k">*</span> TO <span class="pl-s"><span class="pl-pds">'</span>app_user<span class="pl-pds">'</span></span>@<span class="pl-s"><span class="pl-pds">'</span>localhost<span class="pl-pds">'</span></span>;
+
+<span class="pl-c"><span class="pl-c">--</span> 创建管理员用户（全权限）</span>
+<span class="pl-k">CREATE</span> <span class="pl-k">USER</span> '<span class="pl-en">app_admin</span>'@<span class="pl-s"><span class="pl-pds">'</span>localhost<span class="pl-pds">'</span></span> IDENTIFIED BY <span class="pl-s"><span class="pl-pds">'</span>Admin@123456<span class="pl-pds">'</span></span>;
+<span class="pl-k">GRANT</span> ALL PRIVILEGES <span class="pl-k">ON</span> smart_learning_space.<span class="pl-k">*</span> TO <span class="pl-s"><span class="pl-pds">'</span>app_admin<span class="pl-pds">'</span></span>@<span class="pl-s"><span class="pl-pds">'</span>localhost<span class="pl-pds">'</span></span>;</pre></div>
+</li>
+</ol>
+<h4>5.1.3 防SQL注入</h4>
+<ol>
+<li><strong>预处理语句</strong>：应用开发时使用参数化查询（如Java的PreparedStatement、Python的pymysql预处理），避免直接拼接SQL语句。示例（Python）：
+<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-c"># 安全的查询方式（预处理）</span>
+<span class="pl-s1">sql</span> <span class="pl-c1">=</span> <span class="pl-s">"SELECT * FROM `User` WHERE `username` = %s AND `password` = %s"</span>
+<span class="pl-s1">cursor</span>.<span class="pl-c1">execute</span>(<span class="pl-s1">sql</span>, (<span class="pl-s1">username</span>, <span class="pl-s1">encrypted_password</span>))</pre></div>
+</li>
+<li><strong>输入验证</strong>：对用户输入的内容（如用户名、评论）进行过滤，禁止包含<code class="notranslate">OR</code>、<code class="notranslate">AND</code>、<code class="notranslate">UNION</code>等SQL关键字，防止恶意注入。</li>
+</ol>
+<h4>5.1.4 数据备份与恢复</h4>
+<ol>
+<li><strong>定期备份</strong>：使用MySQL的<code class="notranslate">mysqldump</code>工具定期备份数据库，设置每日凌晨自动备份：
+<div class="highlight highlight-source-shell"><pre class="notranslate">mysqldump -u root -p smart_learning_space <span class="pl-k">&gt;</span> backup_<span class="pl-s"><span class="pl-pds">$(</span>date +%Y%m%d<span class="pl-pds">)</span></span>.sql</pre></div>
+</li>
+<li><strong>备份验证</strong>：定期测试备份文件的恢复功能，确保数据丢失时可快速恢复。</li>
+</ol>
+<h3>5.2 完整性措施</h3>
+<h4>5.2.1 实体完整性</h4>
+<ul>
+<li>所有表均设置主键（<code class="notranslate">PRIMARY KEY</code>），确保主键非空且唯一，避免重复记录（如<code class="notranslate">user_id</code>、<code class="notranslate">content_id</code>）。</li>
+<li>主键采用自增策略（<code class="notranslate">AUTO_INCREMENT</code>），避免手动分配主键导致的冲突。</li>
+</ul>
+<h4>5.2.2 参照完整性</h4>
+<ul>
+<li>所有外键均设置关联关系（<code class="notranslate">FOREIGN KEY</code>），并指定级联操作（<code class="notranslate">ON DELETE CASCADE</code>）：当主表记录删除时，从表关联记录自动删除，避免孤行数据（如删除用户时，自动删除其学习记录、评论等）。</li>
+<li>外键字段类型与主表主键一致，确保关联合法性（如<code class="notranslate">user_id</code>均为<code class="notranslate">INT</code>类型）。</li>
+</ul>
+<h4>5.2.3 域完整性</h4>
+<ul>
+<li>使用数据类型约束（如<code class="notranslate">VARCHAR</code>、<code class="notranslate">INT</code>、<code class="notranslate">DATETIME</code>）限制字段取值范围。</li>
+<li>使用<code class="notranslate">CHECK</code>约束验证字段格式（如手机号、邮箱）、取值合法性（如积分非负、库存非负）。</li>
+<li>使用<code class="notranslate">ENUM</code>类型限制字段可选值（如用户角色、内容类型），避免无效值插入。</li>
+</ul>
+<h4>5.2.4 业务完整性</h4>
+<ul>
+<li>通过<code class="notranslate">UNIQUE</code>约束避免重复业务操作（如同一用户同一任务不可重复完成、同一用户同一内容不可重复收藏）。</li>
+<li>通过触发器实现业务逻辑完整性（如完成任务自动加积分、兑换商品自动扣库存）。</li>
+<li>对核心业务操作（如积分兑换）添加事务支持，确保原子性：
+<div class="highlight highlight-source-sql"><pre class="notranslate"><span class="pl-c"><span class="pl-c">--</span> 积分兑换事务示例</span>
+<span class="pl-k">START TRANSACTION</span>;
+<span class="pl-c"><span class="pl-c">--</span> 1. 插入兑换记录</span>
+<span class="pl-k">INSERT INTO</span> <span class="pl-s"><span class="pl-pds">`</span>ExchangeRecord<span class="pl-pds">`</span></span> (<span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span>, <span class="pl-s"><span class="pl-pds">`</span>goods_id<span class="pl-pds">`</span></span>, <span class="pl-s"><span class="pl-pds">`</span>status<span class="pl-pds">`</span></span>)
+<span class="pl-k">VALUES</span> (<span class="pl-c1">1</span>, <span class="pl-c1">101</span>, <span class="pl-s"><span class="pl-pds">'</span>pending<span class="pl-pds">'</span></span>);
+<span class="pl-c"><span class="pl-c">--</span> 2. 扣除积分（触发器自动执行）</span>
+<span class="pl-c"><span class="pl-c">--</span> 3. 减少库存（触发器自动执行）</span>
+<span class="pl-c"><span class="pl-c">--</span> 检查积分是否足够（应用层判断，此处仅示例事务）</span>
+IF (<span class="pl-k">SELECT</span> COALESCE(<span class="pl-c1">SUM</span>(point_value), <span class="pl-c1">0</span>) <span class="pl-k">FROM</span> <span class="pl-s"><span class="pl-pds">`</span>PointRecord<span class="pl-pds">`</span></span> <span class="pl-k">WHERE</span> <span class="pl-s"><span class="pl-pds">`</span>user_id<span class="pl-pds">`</span></span> <span class="pl-k">=</span> <span class="pl-c1">1</span>) <span class="pl-k">&gt;=</span> (<span class="pl-k">SELECT</span> <span class="pl-s"><span class="pl-pds">`</span>need_point<span class="pl-pds">`</span></span> <span class="pl-k">FROM</span> <span class="pl-s"><span class="pl-pds">`</span>ExchangeGoods<span class="pl-pds">`</span></span> <span class="pl-k">WHERE</span> <span class="pl-s"><span class="pl-pds">`</span>goods_id<span class="pl-pds">`</span></span> <span class="pl-k">=</span> <span class="pl-c1">101</span>) THEN
+  <span class="pl-k">COMMIT</span>;  <span class="pl-c"><span class="pl-c">--</span> 积分足够，提交事务</span>
+ELSE
+  <span class="pl-k">ROLLBACK</span>;  <span class="pl-c"><span class="pl-c">--</span> 积分不足，回滚事务</span>
+END IF;</pre></div>
+</li>
+</ul>
+<h3>5.3 性能提升措施</h3>
+<h4>5.3.1 索引优化</h4>
+<ul>
+<li>针对高频查询场景创建索引：如按用户ID查询学习记录、按内容分类查询内容、按积分值查询商品。</li>
+<li>避免过度索引：仅对查询频繁的字段创建索引，插入/更新频繁的字段（如<code class="notranslate">hot</code>、<code class="notranslate">like_count</code>）谨慎创建索引，避免索引维护开销。</li>
+<li>使用联合索引：对多字段组合查询（如<code class="notranslate">type + hot</code>、<code class="notranslate">user_id + create_time</code>）创建联合索引，提升查询效率。</li>
+</ul>
+<h4>5.3.2 查询优化</h4>
+<ul>
+<li>避免<code class="notranslate">SELECT *</code>：仅查询需要的字段，减少数据传输量。</li>
+<li>合理使用<code class="notranslate">LIMIT</code>：分页查询时使用<code class="notranslate">LIMIT</code>限制返回行数，避免一次性查询大量数据。</li>
+<li>避免子查询嵌套过深：复杂查询优先使用<code class="notranslate">JOIN</code>替代子查询，提升执行效率。</li>
+<li>定期分析查询计划：使用<code class="notranslate">EXPLAIN</code>分析慢查询，优化索引与SQL语句：
+<div class="highlight highlight-source-sql"><pre class="notranslate">EXPLAIN <span class="pl-k">SELECT</span> <span class="pl-k">*</span> <span class="pl-k">FROM</span> <span class="pl-s"><span class="pl-pds">`</span>Content<span class="pl-pds">`</span></span> <span class="pl-k">WHERE</span> <span class="pl-s"><span class="pl-pds">`</span>category<span class="pl-pds">`</span></span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>编程<span class="pl-pds">'</span></span> <span class="pl-k">ORDER BY</span> <span class="pl-s"><span class="pl-pds">`</span>hot<span class="pl-pds">`</span></span> <span class="pl-k">DESC</span> <span class="pl-k">LIMIT</span> <span class="pl-c1">10</span>;</pre></div>
+</li>
+</ul>
+<h4>5.3.3 分表分库（预留扩展方案）</h4>
+<ul>
+<li>当数据量增长至百万级时，采用分表策略：
+<ul>
+<li>水平分表：<code class="notranslate">Content</code>表按<code class="notranslate">category</code>分表（如<code class="notranslate">content_politics</code>、<code class="notranslate">content_education</code>）。</li>
+<li>垂直分表：<code class="notranslate">User</code>表拆分出<code class="notranslate">UserProfile</code>表存储头像、标签等不常用字段，提升查询速度。</li>
+</ul>
+</li>
+<li>分库方案：使用Sharding-JDBC中间件，按用户ID哈希分库，分散数据库压力。</li>
+</ul>
+<h4>5.3.4 缓存优化</h4>
+<ul>
+<li>引入Redis缓存热门数据：如热门内容（<code class="notranslate">HotContentTop10</code>视图结果）、用户总积分（<code class="notranslate">UserTotalPoint</code>视图结果），缓存过期时间设置为1小时，减少数据库查询压力。</li>
+<li>缓存用户会话：用户登录后，将用户信息存入Redis，有效期30分钟，避免频繁查询<code class="notranslate">User</code>表。</li>
+</ul>
+<h4>5.3.5 数据库配置优化</h4>
+<ul>
+<li>调整MySQL配置文件（<code class="notranslate">my.cnf</code>）：
+<ul>
+<li>增大<code class="notranslate">innodb_buffer_pool_size</code>（如设置为物理内存的50%），提升数据缓存效率。</li>
+<li>调整<code class="notranslate">max_connections</code>，支持更多并发用户。</li>
+<li>开启<code class="notranslate">innodb_flush_log_at_trx_commit = 1</code>，确保事务安全的同时平衡性能。</li>
+</ul>
+</li>
+</ul>
+<h2>第六章 项目组织与任务分配</h2>
+<h3>6.1 小组成员组成</h3>
+<p>由于本项目为个人开发，小组成员仅1人，具体信息如下：</p>
+<p>吴昊:组长/唯一开发者,负责项目全流程设计与实现</p>
+<h3>6.2 任务分配情况</h3>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>任务模块</th>
+<th>具体工作内容</th>
+<th>完成情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据库现状调研</td>
+<td>调研国内外数据库技术现状、进展，撰写选型分析报告</td>
+<td>已完成</td>
+</tr>
+<tr>
+<td>需求分析</td>
+<td>梳理系统功能需求与非功能需求，明确创新点</td>
+<td>已完成</td>
+</tr>
+<tr>
+<td>概念数据模型设计</td>
+<td>定义实体、属性及关系，绘制E-R图</td>
+<td>已完成</td>
+</tr>
+<tr>
+<td>SQL实现</td>
+<td>编写数据库、表、视图、触发器、索引的SQL语句</td>
+<td>已完成</td>
+</tr>
+<tr>
+<td>安全性、完整性、性能措施设计</td>
+<td>设计数据加密、权限控制、完整性约束、性能优化方案</td>
+<td>已完成</td>
+</tr>
+<tr>
+<td>报告撰写</td>
+<td>整理课程设计报告，确保格式规范、内容完整</td>
+<td>已完成</td>
+</tr>
+<tr>
+<td>个人工作汇报表填写</td>
+<td>总结个人工作内容、遇到的问题及解决方法、体会与收获</td>
+<td>已完成</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h2>第七章 个人工作汇报表</h2>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>姓 名</th>
+<th>吴昊</th>
+<th>学 号</th>
+<th>102301519</th>
+<th>班 级</th>
+<th>计算机5班</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>课程名称</td>
+<td>数据库系统原理</td>
+<td>项目名称</td>
+<td>基于MySQL的“智学空间”学习应用数据库设计</td>
+<td>汇报日期</td>
+<td>2025年XX月XX日</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h3>一、工作内容</h3>
+<ol>
+<li>调研国内外数据库管理系统现状与进展，对比不同数据库的优缺点，确定MySQL 8.0为项目数据库选型，并撰写选型理由。</li>
+<li>分析“智学空间”应用的功能需求与非功能需求，新增个性化推荐、学习小组、积分兑换等创新功能。</li>
+<li>设计概念数据模型，定义12个核心实体及实体间关系，绘制E-R图。</li>
+<li>编写SQL语句，完成数据库、12张数据表、4个视图、4个触发器及额外索引的创建。</li>
+<li>设计系统安全性措施（密码加密、权限控制、防SQL注入）、完整性措施（实体/参照/域/业务完整性）及性能提升措施（索引优化、缓存、查询优化）。</li>
+<li>撰写课程设计报告，整理个人工作汇报表。</li>
+</ol>
+<h3>二、完成情况</h3>
+<p>已按要求完成所有工作内容：</p>
+<ol>
+<li>数据库现状调研与选型分析报告完整，逻辑清晰。</li>
+<li>需求分析全面，创新点符合应用场景。</li>
+<li>概念数据模型设计合理，E-R图准确反映实体关系。</li>
+<li>SQL语句可正常执行，满足业务需求。</li>
+<li>安全性、完整性、性能措施设计针对性强，可落地执行。</li>
+<li>课程设计报告格式规范，内容覆盖所有要求要点；个人工作汇报表填写完整。</li>
+</ol>
+<h3>三、遇到的问题及解决方法</h3>
+<markdown-accessiblity-table><table role="table">
+<thead>
+<tr>
+<th>遇到的问题</th>
+<th>解决方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E-R图中实体关系设计不清晰（如用户与小组的关联）</td>
+<td>查阅数据库设计规范，绘制草图梳理实体间的基数关系，参考同类应用的数据库设计方案</td>
+</tr>
+<tr>
+<td>触发器逻辑编写不熟练（如积分自动扣除功能）</td>
+<td>学习MySQL触发器语法，编写简单示例测试逻辑，逐步完善复杂业务触发器</td>
+</tr>
+<tr>
+<td>索引设计不合理，担心影响插入/更新性能</td>
+<td>学习索引优化原则，仅对高频查询字段创建索引，避免对更新频繁字段创建索引</td>
+</tr>
+<tr>
+<td>安全性措施考虑不全面（如SQL注入防护）</td>
+<td>查阅数据库安全最佳实践，学习预处理语句的使用，添加输入验证逻辑</td>
+</tr>
+</tbody>
+</table></markdown-accessiblity-table>
+<h3>四、总结与体会</h3>
+<p>通过本次课程设计，我系统巩固了数据库系统原理的核心知识：</p>
+<ol>
+<li>深入了解了国内外数据库技术的发展现状，掌握了数据库选型的方法，理解了MySQL在中小型应用中的优势。</li>
+<li>熟练掌握了数据库设计的全流程：从需求分析到概念数据模型设计，再到SQL语句实现，提升了结构化思维能力。</li>
+<li>学会了使用视图、触发器、索引等数据库对象优化业务逻辑与查询性能，掌握了安全性、完整性、性能优化的关键措施。</li>
+<li>在解决触发器编写、索引设计等问题的过程中，提升了自主学习与问题解决能力，体会到理论与实践结合的重要性。</li>
+</ol>
+<p>同时，我也认识到数据库设计需要兼顾功能、性能、安全与可扩展性，后续可进一步学习分库分表、云数据库等高级技术，提升数据库设计的专业性。本次课程设计不仅提升了我的技术能力，也为未来实际项目开发积累了宝贵经验。</p>
+<h2>第八章 总结与展望</h2>
+<h3>8.1 项目总结</h3>
+<p>本项目完成了基于MySQL的“智学空间”学习应用数据库设计，核心成果如下：</p>
+<ol>
+<li>调研了国内外数据库技术现状，结合项目需求选型MySQL 8.0，论证了选型的合理性。</li>
+<li>完成了系统需求分析，明确了6大功能模块及创新点，设计了包含12个核心实体的概念数据模型。</li>
+<li>编写了完整的SQL实现语句，包括数据库、表、视图、触发器、索引，满足业务逻辑需求。</li>
+<li>设计了全面的安全性、完整性及性能提升措施，确保系统稳定、安全、高效运行。</li>
+</ol>
+<p>本次设计严格遵循数据库设计规范，兼顾了功能完整性与可扩展性，可直接支撑“智学空间”应用的开发与部署。</p>
+<h3>8.2 未来展望</h3>
+<ol>
+<li>功能扩展：后续可新增“学习打卡”“在线考试”等功能，相应扩展数据库表结构（如打卡记录表、考试表、试卷表）。</li>
+<li>性能升级：当用户量与数据量增长时，引入Redis缓存集群、分库分表中间件（如Sharding-JDBC），提升系统并发处理能力。</li>
+<li>技术迭代：尝试使用云数据库（如阿里云RDS for MySQL），享受弹性伸缩、自动备份等云服务优势。</li>
+<li>数据挖掘：利用用户学习记录、积分数据进行数据分析，实现更精准的个性化推荐，提升用户体验。</li>
+</ol>
+<p>通过持续优化与扩展，可将“智学空间”打造为功能完善、性能优异的学习类应用，为用户提供更优质的学习服务。</p></div>
+<div style="font-size:small;margin-top:8px;float:right;"></div>
+
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+
+</div>
+    <div id="footer"><div id="footer1">Copyright © <span id="copyrightYear"></span> <a href="https://W2919.github.io">Welcome to my blog!!!</a></div>
+<div id="footer2">
+    <span id="runday"></span><span>Powered by <a href="https://meekdai.com/Gmeek.html" target="_blank">Gmeek</a></span>
+</div>
+
+<script>
+var now=new Date();
+document.getElementById("copyrightYear").innerHTML=now.getFullYear();
+
+if(""!=""){
+    var startSite=new Date("");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";
+}
+</script></div>
+</body>
+<script>
+var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'sync': 'M1.705 8.005a.75.75 0 0 1 .834.656 5.5 5.5 0 0 0 9.592 2.97l-1.204-1.204a.25.25 0 0 1 .177-.427h3.646a.25.25 0 0 1 .25.25v3.646a.25.25 0 0 1-.427.177l-1.38-1.38A7.002 7.002 0 0 1 1.05 8.84a.75.75 0 0 1 .656-.834ZM8 2.5a5.487 5.487 0 0 0-4.131 1.869l1.204 1.204A.25.25 0 0 1 4.896 6H1.25A.25.25 0 0 1 1 5.75V2.104a.25.25 0 0 1 .427-.177l1.38 1.38A7.002 7.002 0 0 1 14.95 7.16a.75.75 0 0 1-1.49.178A5.5 5.5 0 0 0 8 2.5Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'copy': 'M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z', 'check': 'M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z'};
+var utterancesLoad=0;
+
+let themeSettings={
+    "dark": ["dark","moon","#00f0ff","dark-blue"],
+    "light": ["light","sun","#ff5000","github-light"],
+    "auto": ["auto","sync","","preferred-color-scheme"]
+};
+function changeTheme(mode, icon, color, utheme){
+    document.documentElement.setAttribute("data-color-mode",mode);
+    document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
+    document.getElementById("themeSwitch").parentNode.style.color=color;
+    if(utterancesLoad==1){utterancesTheme(utheme);}
+}
+function modeSwitch(){
+    let currentMode=document.documentElement.getAttribute('data-color-mode');
+    let newMode = currentMode === "light" ? "dark" : currentMode === "dark" ? "auto" : "light";
+    localStorage.setItem("meek_theme", newMode);
+    if(themeSettings[newMode]){
+        changeTheme(...themeSettings[newMode]);
+    }
+}
+function utterancesTheme(theme){
+    const message={type:'set-theme',theme: theme};
+    const iframe=document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message,'https://utteranc.es');
+}
+if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
+console.log("\n %c Gmeek last https://github.com/Meekdai/Gmeek \n","padding:5px 0;background:#02d81d;color:#fff");
+</script>
+
+<script>
+document.getElementById("pathHome").setAttribute("d",IconList["home"]);
+document.getElementById("pathIssue").setAttribute("d",IconList["github"]);
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","W2919/W2919.github.io");
+    script.setAttribute("issue-term","title");
+    
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
+    else{script.setAttribute("theme","preferred-color-scheme");}
+    
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const createClipboardHTML = (codeContent, additionalClasses = '') => `
+        <pre class="notranslate"><code class="notranslate">${codeContent}</code></pre>
+        <div class="clipboard-container position-absolute right-0 top-0 ${additionalClasses}">
+            <clipboard-copy class="ClipboardButton btn m-2 p-0" role="button" style="display: inherit;">
+                <svg height="16" width="16" class="octicon octicon-copy m-2"><path d="${IconList["copy"]}"></path></svg>
+                <svg height="16" width="16" class="octicon octicon-check color-fg-success m-2 d-none"><path d="${IconList["check"]}"></path></svg>
+            </clipboard-copy>
+            <div class="copy-feedback">Copied!</div>
+        </div>
+    `;
+
+    const handleCodeElements = (selector = '') => {
+        document.querySelectorAll(selector).forEach(codeElement => {
+            const codeContent = codeElement.innerHTML;
+            const newStructure = document.createElement('div');
+            newStructure.className = 'snippet-clipboard-content position-relative overflow-auto';
+            newStructure.innerHTML = createClipboardHTML(codeContent);
+
+            const parentElement = codeElement.parentElement;
+            if (selector.includes('highlight')) {
+                parentElement.insertBefore(newStructure, codeElement.nextSibling);
+                parentElement.removeChild(codeElement);
+            } else {
+                parentElement.parentElement.replaceChild(newStructure, parentElement);
+            }
+        });
+    };
+
+    handleCodeElements('pre.notranslate > code.notranslate');
+    handleCodeElements('div.highlight > pre.notranslate');
+
+    let currentFeedback = null;
+    document.querySelectorAll('clipboard-copy').forEach(copyButton => {
+        copyButton.addEventListener('click', () => {
+            const codeContent = copyButton.closest('.snippet-clipboard-content').innerText;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = codeContent;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+
+            const copyIcon = copyButton.querySelector('.octicon-copy');
+            const checkIcon = copyButton.querySelector('.octicon-check');
+            const copyFeedback = copyButton.nextElementSibling;
+
+            if (currentFeedback && currentFeedback !== copyFeedback) {currentFeedback.style.display = 'none';}
+            currentFeedback = copyFeedback;
+
+            copyIcon.classList.add('d-none');
+            checkIcon.classList.remove('d-none');
+            copyFeedback.style.display = 'block';
+            copyButton.style.borderColor = 'var(--color-success-fg)';
+
+            setTimeout(() => {
+                copyIcon.classList.remove('d-none');
+                checkIcon.classList.add('d-none');
+                copyFeedback.style.display = 'none';
+                copyButton.style.borderColor = '';
+            }, 2000);
+        });
+    });
+});
+
+</script>
+
+
+</html>

@@ -1,5 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Welcome to my blog!!!</title><link>https://W2919.github.io</link><description>This is W2919's blog</description><copyright>Welcome to my blog!!!</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/146103133?v=4</url><title>avatar</title><link>https://W2919.github.io</link></image><lastBuildDate>Mon, 01 Dec 2025 05:23:44 +0000</lastBuildDate><managingEditor>Welcome to my blog!!!</managingEditor><ttl>60</ttl><webMaster>Welcome to my blog!!!</webMaster><item><title>12组-2025K班现场编程任务</title><link>https://W2919.github.io/post/12-zu--2025K-ban-xian-chang-bian-cheng-ren-wu.html</link><description>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Welcome to my blog!!!</title><link>https://W2919.github.io</link><description>This is W2919's blog</description><copyright>Welcome to my blog!!!</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/146103133?v=4</url><title>avatar</title><link>https://W2919.github.io</link></image><lastBuildDate>Mon, 01 Dec 2025 08:39:11 +0000</lastBuildDate><managingEditor>Welcome to my blog!!!</managingEditor><ttl>60</ttl><webMaster>Welcome to my blog!!!</webMaster><item><title>《数据库系统原理》课程设计报告</title><link>https://W2919.github.io/post/%E3%80%8A-shu-ju-ku-xi-tong-yuan-li-%E3%80%8B-ke-cheng-she-ji-bao-gao.html</link><description>**项目名称**：基于MySQL的“智学空间”学习应用数据库设计（创新型“学习强国”类应用）
+**开发者**：吴昊（个人开发）
+**学 号**：102301519
+**班 级**：计算机5班
+**课程名称**：数据库系统原理
+**提交日期**：2025年12月日
+
+
+## 第一章 引言
+### 1.1 项目背景与意义
+“学习强国”作为主流学习类应用，整合了海量优质学习资源，但在个性化推荐、社交互动等方面仍有拓展空间。</description><guid isPermaLink="true">https://W2919.github.io/post/%E3%80%8A-shu-ju-ku-xi-tong-yuan-li-%E3%80%8B-ke-cheng-she-ji-bao-gao.html</guid><pubDate>Mon, 01 Dec 2025 08:38:44 +0000</pubDate></item><item><title>12组-2025K班现场编程任务</title><link>https://W2919.github.io/post/12-zu--2025K-ban-xian-chang-bian-cheng-ren-wu.html</link><description>
 
 **项目名称**：小红书直播自动交互系统  
 **开发平台**：AutoJS6  
